@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASN.1 Map</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>ASN.1 Map</h1>
+  <span class="tag">Interactive map of ASN.1 types in CMS, X.509 and CMP</span>
+</header>
+<main>
+  <aside id="left">
+    <input id="search" type="search" placeholder="Search type, RFC or module..." autocomplete="off">
+    <div id="filters"></div>
+    <div class="row">
+      <label>Hops <select id="depth"><option>1</option><option selected>2</option><option>3</option></select></label>
+      <label><input type="checkbox" id="showAll"> Whole graph</label>
+    </div>
+    <ul id="results"></ul>
+  </aside>
+  <div id="cy"></div>
+  <aside id="right"><p class="hint">Select a type to see its fields, usages and source.</p></aside>
+</main>
+<script src="vendor/cytoscape.min.js"></script>
+<script src="vendor/dagre.min.js"></script>
+<script src="vendor/cytoscape-dagre.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

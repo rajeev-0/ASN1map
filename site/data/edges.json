@@ -1,0 +1,2305 @@
+[
+ {
+  "source": "ContentInfo",
+  "target": "ContentType",
+  "field": "contentType",
+  "optional": false
+ },
+ {
+  "source": "SignedData",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "SignedData",
+  "target": "DigestAlgorithmIdentifiers",
+  "field": "digestAlgorithms",
+  "optional": false
+ },
+ {
+  "source": "SignedData",
+  "target": "EncapsulatedContentInfo",
+  "field": "encapContentInfo",
+  "optional": false
+ },
+ {
+  "source": "SignedData",
+  "target": "CertificateSet",
+  "field": "certificates",
+  "optional": true
+ },
+ {
+  "source": "SignedData",
+  "target": "RevocationInfoChoices",
+  "field": "crls",
+  "optional": true
+ },
+ {
+  "source": "SignedData",
+  "target": "SignerInfos",
+  "field": "signerInfos",
+  "optional": false
+ },
+ {
+  "source": "DigestAlgorithmIdentifiers",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "SignerInfos",
+  "target": "SignerInfo",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "EncapsulatedContentInfo",
+  "target": "ContentType",
+  "field": "eContentType",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "SignerIdentifier",
+  "field": "sid",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "digestAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "SignedAttributes",
+  "field": "signedAttrs",
+  "optional": true
+ },
+ {
+  "source": "SignerInfo",
+  "target": "SignatureAlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "SignatureValue",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "SignerInfo",
+  "target": "UnsignedAttributes",
+  "field": "unsignedAttrs",
+  "optional": true
+ },
+ {
+  "source": "SignerIdentifier",
+  "target": "IssuerAndSerialNumber",
+  "field": "issuerAndSerialNumber",
+  "optional": false
+ },
+ {
+  "source": "SignerIdentifier",
+  "target": "CryptographicMessageSyntax2004.SubjectKeyIdentifier",
+  "field": "subjectKeyIdentifier",
+  "optional": false
+ },
+ {
+  "source": "SignedAttributes",
+  "target": "CryptographicMessageSyntax2004.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "UnsignedAttributes",
+  "target": "CryptographicMessageSyntax2004.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CryptographicMessageSyntax2004.Attribute",
+  "target": "CryptographicMessageSyntax2004.AttributeValue",
+  "field": "attrValues",
+  "optional": false
+ },
+ {
+  "source": "EnvelopedData",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "EnvelopedData",
+  "target": "OriginatorInfo",
+  "field": "originatorInfo",
+  "optional": true
+ },
+ {
+  "source": "EnvelopedData",
+  "target": "RecipientInfos",
+  "field": "recipientInfos",
+  "optional": false
+ },
+ {
+  "source": "EnvelopedData",
+  "target": "EncryptedContentInfo",
+  "field": "encryptedContentInfo",
+  "optional": false
+ },
+ {
+  "source": "EnvelopedData",
+  "target": "UnprotectedAttributes",
+  "field": "unprotectedAttrs",
+  "optional": true
+ },
+ {
+  "source": "OriginatorInfo",
+  "target": "CertificateSet",
+  "field": "certs",
+  "optional": true
+ },
+ {
+  "source": "OriginatorInfo",
+  "target": "RevocationInfoChoices",
+  "field": "crls",
+  "optional": true
+ },
+ {
+  "source": "RecipientInfos",
+  "target": "RecipientInfo",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "EncryptedContentInfo",
+  "target": "ContentType",
+  "field": "contentType",
+  "optional": false
+ },
+ {
+  "source": "EncryptedContentInfo",
+  "target": "ContentEncryptionAlgorithmIdentifier",
+  "field": "contentEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "EncryptedContentInfo",
+  "target": "EncryptedContent",
+  "field": "encryptedContent",
+  "optional": true
+ },
+ {
+  "source": "UnprotectedAttributes",
+  "target": "CryptographicMessageSyntax2004.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "RecipientInfo",
+  "target": "KeyTransRecipientInfo",
+  "field": "ktri",
+  "optional": false
+ },
+ {
+  "source": "RecipientInfo",
+  "target": "KeyAgreeRecipientInfo",
+  "field": "kari",
+  "optional": false
+ },
+ {
+  "source": "RecipientInfo",
+  "target": "KEKRecipientInfo",
+  "field": "kekri",
+  "optional": false
+ },
+ {
+  "source": "RecipientInfo",
+  "target": "PasswordRecipientInfo",
+  "field": "pwri",
+  "optional": false
+ },
+ {
+  "source": "RecipientInfo",
+  "target": "OtherRecipientInfo",
+  "field": "ori",
+  "optional": false
+ },
+ {
+  "source": "KeyTransRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KeyTransRecipientInfo",
+  "target": "RecipientIdentifier",
+  "field": "rid",
+  "optional": false
+ },
+ {
+  "source": "KeyTransRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyTransRecipientInfo",
+  "target": "CryptographicMessageSyntax2004.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "RecipientIdentifier",
+  "target": "IssuerAndSerialNumber",
+  "field": "issuerAndSerialNumber",
+  "optional": false
+ },
+ {
+  "source": "RecipientIdentifier",
+  "target": "CryptographicMessageSyntax2004.SubjectKeyIdentifier",
+  "field": "subjectKeyIdentifier",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientInfo",
+  "target": "OriginatorIdentifierOrKey",
+  "field": "originator",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientInfo",
+  "target": "UserKeyingMaterial",
+  "field": "ukm",
+  "optional": true
+ },
+ {
+  "source": "KeyAgreeRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientInfo",
+  "target": "RecipientEncryptedKeys",
+  "field": "recipientEncryptedKeys",
+  "optional": false
+ },
+ {
+  "source": "OriginatorIdentifierOrKey",
+  "target": "IssuerAndSerialNumber",
+  "field": "issuerAndSerialNumber",
+  "optional": false
+ },
+ {
+  "source": "OriginatorIdentifierOrKey",
+  "target": "CryptographicMessageSyntax2004.SubjectKeyIdentifier",
+  "field": "subjectKeyIdentifier",
+  "optional": false
+ },
+ {
+  "source": "OriginatorIdentifierOrKey",
+  "target": "OriginatorPublicKey",
+  "field": "originatorKey",
+  "optional": false
+ },
+ {
+  "source": "OriginatorPublicKey",
+  "target": "AlgorithmIdentifier",
+  "field": "algorithm",
+  "optional": false
+ },
+ {
+  "source": "RecipientEncryptedKeys",
+  "target": "RecipientEncryptedKey",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "RecipientEncryptedKey",
+  "target": "KeyAgreeRecipientIdentifier",
+  "field": "rid",
+  "optional": false
+ },
+ {
+  "source": "RecipientEncryptedKey",
+  "target": "CryptographicMessageSyntax2004.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientIdentifier",
+  "target": "IssuerAndSerialNumber",
+  "field": "issuerAndSerialNumber",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreeRecipientIdentifier",
+  "target": "RecipientKeyIdentifier",
+  "field": "rKeyId",
+  "optional": false
+ },
+ {
+  "source": "RecipientKeyIdentifier",
+  "target": "CryptographicMessageSyntax2004.SubjectKeyIdentifier",
+  "field": "subjectKeyIdentifier",
+  "optional": false
+ },
+ {
+  "source": "RecipientKeyIdentifier",
+  "target": "OtherKeyAttribute",
+  "field": "other",
+  "optional": true
+ },
+ {
+  "source": "KEKRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KEKRecipientInfo",
+  "target": "KEKIdentifier",
+  "field": "kekid",
+  "optional": false
+ },
+ {
+  "source": "KEKRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KEKRecipientInfo",
+  "target": "CryptographicMessageSyntax2004.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "KEKIdentifier",
+  "target": "OtherKeyAttribute",
+  "field": "other",
+  "optional": true
+ },
+ {
+  "source": "PasswordRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "PasswordRecipientInfo",
+  "target": "KeyDerivationAlgorithmIdentifier",
+  "field": "keyDerivationAlgorithm",
+  "optional": true
+ },
+ {
+  "source": "PasswordRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "PasswordRecipientInfo",
+  "target": "CryptographicMessageSyntax2004.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "DigestedData",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "DigestedData",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "digestAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "DigestedData",
+  "target": "EncapsulatedContentInfo",
+  "field": "encapContentInfo",
+  "optional": false
+ },
+ {
+  "source": "DigestedData",
+  "target": "Digest",
+  "field": "digest",
+  "optional": false
+ },
+ {
+  "source": "EncryptedData",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "EncryptedData",
+  "target": "EncryptedContentInfo",
+  "field": "encryptedContentInfo",
+  "optional": false
+ },
+ {
+  "source": "EncryptedData",
+  "target": "UnprotectedAttributes",
+  "field": "unprotectedAttrs",
+  "optional": true
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "OriginatorInfo",
+  "field": "originatorInfo",
+  "optional": true
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "RecipientInfos",
+  "field": "recipientInfos",
+  "optional": false
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "MessageAuthenticationCodeAlgorithm",
+  "field": "macAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "digestAlgorithm",
+  "optional": true
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "EncapsulatedContentInfo",
+  "field": "encapContentInfo",
+  "optional": false
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "AuthAttributes",
+  "field": "authAttrs",
+  "optional": true
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "MessageAuthenticationCode",
+  "field": "mac",
+  "optional": false
+ },
+ {
+  "source": "AuthenticatedData",
+  "target": "UnauthAttributes",
+  "field": "unauthAttrs",
+  "optional": true
+ },
+ {
+  "source": "AuthAttributes",
+  "target": "CryptographicMessageSyntax2004.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "UnauthAttributes",
+  "target": "CryptographicMessageSyntax2004.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "DigestAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "SignatureAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "KeyEncryptionAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ContentEncryptionAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "MessageAuthenticationCodeAlgorithm",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "KeyDerivationAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "RevocationInfoChoices",
+  "target": "RevocationInfoChoice",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "RevocationInfoChoice",
+  "target": "CertificateList",
+  "field": "crl",
+  "optional": false
+ },
+ {
+  "source": "RevocationInfoChoice",
+  "target": "OtherRevocationInfoFormat",
+  "field": "other",
+  "optional": false
+ },
+ {
+  "source": "CertificateChoices",
+  "target": "Certificate",
+  "field": "certificate",
+  "optional": false
+ },
+ {
+  "source": "CertificateChoices",
+  "target": "ExtendedCertificate",
+  "field": "extendedCertificate",
+  "optional": false
+ },
+ {
+  "source": "CertificateChoices",
+  "target": "AttributeCertificateV1",
+  "field": "v1AttrCert",
+  "optional": false
+ },
+ {
+  "source": "CertificateChoices",
+  "target": "AttributeCertificateV2",
+  "field": "v2AttrCert",
+  "optional": false
+ },
+ {
+  "source": "CertificateChoices",
+  "target": "OtherCertificateFormat",
+  "field": "other",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateV2",
+  "target": "AttributeCertificate",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CertificateSet",
+  "target": "CertificateChoices",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "IssuerAndSerialNumber",
+  "target": "Name",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "IssuerAndSerialNumber",
+  "target": "CertificateSerialNumber",
+  "field": "serialNumber",
+  "optional": false
+ },
+ {
+  "source": "SigningTime",
+  "target": "CryptographicMessageSyntax2004.Time",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "Countersignature",
+  "target": "SignerInfo",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificateOrCertificate",
+  "target": "Certificate",
+  "field": "certificate",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificateOrCertificate",
+  "target": "ExtendedCertificate",
+  "field": "extendedCertificate",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificate",
+  "target": "ExtendedCertificateInfo",
+  "field": "extendedCertificateInfo",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificate",
+  "target": "SignatureAlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificate",
+  "target": "Signature",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificateInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificateInfo",
+  "target": "Certificate",
+  "field": "certificate",
+  "optional": false
+ },
+ {
+  "source": "ExtendedCertificateInfo",
+  "target": "UnauthAttributes",
+  "field": "attributes",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateV1",
+  "target": "AttributeCertificateInfoV1",
+  "field": "acInfo",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateV1",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "AttCertVersionV1",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "IssuerSerial",
+  "field": "subject",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "GeneralNames",
+  "field": "subject",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "GeneralNames",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "AlgorithmIdentifier",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "CertificateSerialNumber",
+  "field": "serialNumber",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "AttCertValidityPeriod",
+  "field": "attCertValidityPeriod",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "PKIX1Explicit88.Attribute",
+  "field": "attributes",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "UniqueIdentifier",
+  "field": "issuerUniqueID",
+  "optional": true
+ },
+ {
+  "source": "AttributeCertificateInfoV1",
+  "target": "Extensions",
+  "field": "extensions",
+  "optional": true
+ },
+ {
+  "source": "PKIX1Explicit88.Attribute",
+  "target": "AttributeType",
+  "field": "type",
+  "optional": false
+ },
+ {
+  "source": "PKIX1Explicit88.Attribute",
+  "target": "PKIX1Explicit88.AttributeValue",
+  "field": "values",
+  "optional": false
+ },
+ {
+  "source": "PKIX1Explicit88.AttributeTypeAndValue",
+  "target": "AttributeType",
+  "field": "type",
+  "optional": false
+ },
+ {
+  "source": "PKIX1Explicit88.AttributeTypeAndValue",
+  "target": "PKIX1Explicit88.AttributeValue",
+  "field": "value",
+  "optional": false
+ },
+ {
+  "source": "Name",
+  "target": "RDNSequence",
+  "field": "rdnSequence",
+  "optional": false
+ },
+ {
+  "source": "RDNSequence",
+  "target": "RelativeDistinguishedName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "DistinguishedName",
+  "target": "RDNSequence",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "RelativeDistinguishedName",
+  "target": "PKIX1Explicit88.AttributeTypeAndValue",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "Certificate",
+  "target": "TBSCertificate",
+  "field": "tbsCertificate",
+  "optional": false
+ },
+ {
+  "source": "Certificate",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "Version",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "CertificateSerialNumber",
+  "field": "serialNumber",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "AlgorithmIdentifier",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "Name",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "Validity",
+  "field": "validity",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "Name",
+  "field": "subject",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "SubjectPublicKeyInfo",
+  "field": "subjectPublicKeyInfo",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "UniqueIdentifier",
+  "field": "issuerUniqueID",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "UniqueIdentifier",
+  "field": "subjectUniqueID",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificate",
+  "target": "Extensions",
+  "field": "extensions",
+  "optional": true
+ },
+ {
+  "source": "Validity",
+  "target": "PKIX1Explicit88.Time",
+  "field": "notBefore",
+  "optional": false
+ },
+ {
+  "source": "Validity",
+  "target": "PKIX1Explicit88.Time",
+  "field": "notAfter",
+  "optional": false
+ },
+ {
+  "source": "SubjectPublicKeyInfo",
+  "target": "AlgorithmIdentifier",
+  "field": "algorithm",
+  "optional": false
+ },
+ {
+  "source": "Extensions",
+  "target": "Extension",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertificateList",
+  "target": "TBSCertList",
+  "field": "tbsCertList",
+  "optional": false
+ },
+ {
+  "source": "CertificateList",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "TBSCertList",
+  "target": "Version",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TBSCertList",
+  "target": "AlgorithmIdentifier",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "TBSCertList",
+  "target": "Name",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "TBSCertList",
+  "target": "PKIX1Explicit88.Time",
+  "field": "thisUpdate",
+  "optional": false
+ },
+ {
+  "source": "TBSCertList",
+  "target": "PKIX1Explicit88.Time",
+  "field": "nextUpdate",
+  "optional": true
+ },
+ {
+  "source": "TBSCertList",
+  "target": "CertificateSerialNumber",
+  "field": "revokedCertificates",
+  "optional": true
+ },
+ {
+  "source": "TBSCertList",
+  "target": "PKIX1Explicit88.Time",
+  "field": "revokedCertificates",
+  "optional": true
+ },
+ {
+  "source": "TBSCertList",
+  "target": "Extensions",
+  "field": "revokedCertificates",
+  "optional": true
+ },
+ {
+  "source": "TBSCertList",
+  "target": "Extensions",
+  "field": "crlExtensions",
+  "optional": true
+ },
+ {
+  "source": "ORAddress",
+  "target": "BuiltInStandardAttributes",
+  "field": "built-in-standard-attributes",
+  "optional": false
+ },
+ {
+  "source": "ORAddress",
+  "target": "BuiltInDomainDefinedAttributes",
+  "field": "built-in-domain-defined-attributes",
+  "optional": true
+ },
+ {
+  "source": "ORAddress",
+  "target": "ExtensionAttributes",
+  "field": "extension-attributes",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "CountryName",
+  "field": "country-name",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "AdministrationDomainName",
+  "field": "administration-domain-name",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "NetworkAddress",
+  "field": "network-address",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "TerminalIdentifier",
+  "field": "terminal-identifier",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "PrivateDomainName",
+  "field": "private-domain-name",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "OrganizationName",
+  "field": "organization-name",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "NumericUserIdentifier",
+  "field": "numeric-user-identifier",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "PersonalName",
+  "field": "personal-name",
+  "optional": true
+ },
+ {
+  "source": "BuiltInStandardAttributes",
+  "target": "OrganizationalUnitNames",
+  "field": "organizational-unit-names",
+  "optional": true
+ },
+ {
+  "source": "NetworkAddress",
+  "target": "X121Address",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "OrganizationalUnitNames",
+  "target": "OrganizationalUnitName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "BuiltInDomainDefinedAttributes",
+  "target": "BuiltInDomainDefinedAttribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ExtensionAttributes",
+  "target": "ExtensionAttribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TeletexOrganizationalUnitNames",
+  "target": "TeletexOrganizationalUnitName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PhysicalDeliveryOfficeName",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PhysicalDeliveryOfficeNumber",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ExtensionORAddressComponents",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PhysicalDeliveryPersonalName",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PhysicalDeliveryOrganizationName",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ExtensionPhysicalDeliveryAddressComponents",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "StreetAddress",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PostOfficeBoxAddress",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PosteRestanteAddress",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "UniquePostalName",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "LocalPostalAttributes",
+  "target": "PDSParameter",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ExtendedNetworkAddress",
+  "target": "PresentationAddress",
+  "field": "psap-address",
+  "optional": false
+ },
+ {
+  "source": "TeletexDomainDefinedAttributes",
+  "target": "TeletexDomainDefinedAttribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "AuthorityKeyIdentifier",
+  "target": "KeyIdentifier",
+  "field": "keyIdentifier",
+  "optional": true
+ },
+ {
+  "source": "AuthorityKeyIdentifier",
+  "target": "GeneralNames",
+  "field": "authorityCertIssuer",
+  "optional": true
+ },
+ {
+  "source": "AuthorityKeyIdentifier",
+  "target": "CertificateSerialNumber",
+  "field": "authorityCertSerialNumber",
+  "optional": true
+ },
+ {
+  "source": "PKIX1Implicit88.SubjectKeyIdentifier",
+  "target": "KeyIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CertificatePolicies",
+  "target": "PolicyInformation",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PolicyInformation",
+  "target": "CertPolicyId",
+  "field": "policyIdentifier",
+  "optional": false
+ },
+ {
+  "source": "PolicyInformation",
+  "target": "PolicyQualifierInfo",
+  "field": "policyQualifiers",
+  "optional": true
+ },
+ {
+  "source": "PolicyQualifierInfo",
+  "target": "PolicyQualifierId",
+  "field": "policyQualifierId",
+  "optional": false
+ },
+ {
+  "source": "UserNotice",
+  "target": "NoticeReference",
+  "field": "noticeRef",
+  "optional": true
+ },
+ {
+  "source": "UserNotice",
+  "target": "DisplayText",
+  "field": "explicitText",
+  "optional": true
+ },
+ {
+  "source": "NoticeReference",
+  "target": "DisplayText",
+  "field": "organization",
+  "optional": false
+ },
+ {
+  "source": "PolicyMappings",
+  "target": "CertPolicyId",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "SubjectAltName",
+  "target": "GeneralNames",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "GeneralNames",
+  "target": "GeneralName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "GeneralName",
+  "target": "AnotherName",
+  "field": "otherName",
+  "optional": false
+ },
+ {
+  "source": "GeneralName",
+  "target": "ORAddress",
+  "field": "x400Address",
+  "optional": false
+ },
+ {
+  "source": "GeneralName",
+  "target": "Name",
+  "field": "directoryName",
+  "optional": false
+ },
+ {
+  "source": "GeneralName",
+  "target": "EDIPartyName",
+  "field": "ediPartyName",
+  "optional": false
+ },
+ {
+  "source": "EDIPartyName",
+  "target": "DirectoryString",
+  "field": "nameAssigner",
+  "optional": true
+ },
+ {
+  "source": "EDIPartyName",
+  "target": "DirectoryString",
+  "field": "partyName",
+  "optional": false
+ },
+ {
+  "source": "IssuerAltName",
+  "target": "GeneralNames",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "SubjectDirectoryAttributes",
+  "target": "PKIX1Explicit88.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "NameConstraints",
+  "target": "GeneralSubtrees",
+  "field": "permittedSubtrees",
+  "optional": true
+ },
+ {
+  "source": "NameConstraints",
+  "target": "GeneralSubtrees",
+  "field": "excludedSubtrees",
+  "optional": true
+ },
+ {
+  "source": "GeneralSubtrees",
+  "target": "GeneralSubtree",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "GeneralSubtree",
+  "target": "GeneralName",
+  "field": "base",
+  "optional": false
+ },
+ {
+  "source": "GeneralSubtree",
+  "target": "BaseDistance",
+  "field": "minimum",
+  "optional": true
+ },
+ {
+  "source": "GeneralSubtree",
+  "target": "BaseDistance",
+  "field": "maximum",
+  "optional": true
+ },
+ {
+  "source": "PolicyConstraints",
+  "target": "SkipCerts",
+  "field": "requireExplicitPolicy",
+  "optional": true
+ },
+ {
+  "source": "PolicyConstraints",
+  "target": "SkipCerts",
+  "field": "inhibitPolicyMapping",
+  "optional": true
+ },
+ {
+  "source": "CRLDistributionPoints",
+  "target": "DistributionPoint",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "DistributionPoint",
+  "target": "DistributionPointName",
+  "field": "distributionPoint",
+  "optional": true
+ },
+ {
+  "source": "DistributionPoint",
+  "target": "ReasonFlags",
+  "field": "reasons",
+  "optional": true
+ },
+ {
+  "source": "DistributionPoint",
+  "target": "GeneralNames",
+  "field": "cRLIssuer",
+  "optional": true
+ },
+ {
+  "source": "DistributionPointName",
+  "target": "GeneralNames",
+  "field": "fullName",
+  "optional": false
+ },
+ {
+  "source": "DistributionPointName",
+  "target": "RelativeDistinguishedName",
+  "field": "nameRelativeToCRLIssuer",
+  "optional": false
+ },
+ {
+  "source": "ExtKeyUsageSyntax",
+  "target": "KeyPurposeId",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "InhibitAnyPolicy",
+  "target": "SkipCerts",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "FreshestCRL",
+  "target": "CRLDistributionPoints",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "AuthorityInfoAccessSyntax",
+  "target": "AccessDescription",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "AccessDescription",
+  "target": "GeneralName",
+  "field": "accessLocation",
+  "optional": false
+ },
+ {
+  "source": "SubjectInfoAccessSyntax",
+  "target": "AccessDescription",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "IssuingDistributionPoint",
+  "target": "DistributionPointName",
+  "field": "distributionPoint",
+  "optional": true
+ },
+ {
+  "source": "IssuingDistributionPoint",
+  "target": "ReasonFlags",
+  "field": "onlySomeReasons",
+  "optional": true
+ },
+ {
+  "source": "BaseCRLNumber",
+  "target": "CRLNumber",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CertificateIssuer",
+  "target": "GeneralNames",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CMPCertificate",
+  "target": "Certificate",
+  "field": "x509v3PKCert",
+  "optional": false
+ },
+ {
+  "source": "PKIMessage",
+  "target": "PKIHeader",
+  "field": "header",
+  "optional": false
+ },
+ {
+  "source": "PKIMessage",
+  "target": "PKIBody",
+  "field": "body",
+  "optional": false
+ },
+ {
+  "source": "PKIMessage",
+  "target": "PKIProtection",
+  "field": "protection",
+  "optional": true
+ },
+ {
+  "source": "PKIMessage",
+  "target": "CMPCertificate",
+  "field": "extraCerts",
+  "optional": true
+ },
+ {
+  "source": "PKIMessages",
+  "target": "PKIMessage",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PKIHeader",
+  "target": "GeneralName",
+  "field": "sender",
+  "optional": false
+ },
+ {
+  "source": "PKIHeader",
+  "target": "GeneralName",
+  "field": "recipient",
+  "optional": false
+ },
+ {
+  "source": "PKIHeader",
+  "target": "AlgorithmIdentifier",
+  "field": "protectionAlg",
+  "optional": true
+ },
+ {
+  "source": "PKIHeader",
+  "target": "KeyIdentifier",
+  "field": "senderKID",
+  "optional": true
+ },
+ {
+  "source": "PKIHeader",
+  "target": "KeyIdentifier",
+  "field": "recipKID",
+  "optional": true
+ },
+ {
+  "source": "PKIHeader",
+  "target": "PKIFreeText",
+  "field": "freeText",
+  "optional": true
+ },
+ {
+  "source": "PKIHeader",
+  "target": "InfoTypeAndValue",
+  "field": "generalInfo",
+  "optional": true
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertReqMessages",
+  "field": "ir",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertRepMessage",
+  "field": "ip",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertReqMessages",
+  "field": "cr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertRepMessage",
+  "field": "cp",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertificationRequest",
+  "field": "p10cr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "POPODecKeyChallContent",
+  "field": "popdecc",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "POPODecKeyRespContent",
+  "field": "popdecr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertReqMessages",
+  "field": "kur",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertRepMessage",
+  "field": "kup",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertReqMessages",
+  "field": "krr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "KeyRecRepContent",
+  "field": "krp",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "RevReqContent",
+  "field": "rr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "RevRepContent",
+  "field": "rp",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertReqMessages",
+  "field": "ccr",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertRepMessage",
+  "field": "ccp",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CAKeyUpdAnnContent",
+  "field": "ckuann",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertAnnContent",
+  "field": "cann",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "RevAnnContent",
+  "field": "rann",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CRLAnnContent",
+  "field": "crlann",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "PKIConfirmContent",
+  "field": "pkiconf",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "NestedMessageContent",
+  "field": "nested",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "GenMsgContent",
+  "field": "genm",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "GenRepContent",
+  "field": "genp",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "ErrorMsgContent",
+  "field": "error",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "CertConfirmContent",
+  "field": "certConf",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "PollReqContent",
+  "field": "pollReq",
+  "optional": false
+ },
+ {
+  "source": "PKIBody",
+  "target": "PollRepContent",
+  "field": "pollRep",
+  "optional": false
+ },
+ {
+  "source": "ProtectedPart",
+  "target": "PKIHeader",
+  "field": "header",
+  "optional": false
+ },
+ {
+  "source": "ProtectedPart",
+  "target": "PKIBody",
+  "field": "body",
+  "optional": false
+ },
+ {
+  "source": "PKIXCMP.PBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "owf",
+  "optional": false
+ },
+ {
+  "source": "PKIXCMP.PBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "mac",
+  "optional": false
+ },
+ {
+  "source": "DHBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "owf",
+  "optional": false
+ },
+ {
+  "source": "DHBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "mac",
+  "optional": false
+ },
+ {
+  "source": "NestedMessageContent",
+  "target": "PKIMessages",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PKIStatusInfo",
+  "target": "PKIStatus",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "PKIStatusInfo",
+  "target": "PKIFreeText",
+  "field": "statusString",
+  "optional": true
+ },
+ {
+  "source": "PKIStatusInfo",
+  "target": "PKIFailureInfo",
+  "field": "failInfo",
+  "optional": true
+ },
+ {
+  "source": "OOBCert",
+  "target": "CMPCertificate",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "OOBCertHash",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlg",
+  "optional": true
+ },
+ {
+  "source": "OOBCertHash",
+  "target": "CertId",
+  "field": "certId",
+  "optional": true
+ },
+ {
+  "source": "POPODecKeyChallContent",
+  "target": "Challenge",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "Challenge",
+  "target": "AlgorithmIdentifier",
+  "field": "owf",
+  "optional": true
+ },
+ {
+  "source": "CertRepMessage",
+  "target": "CMPCertificate",
+  "field": "caPubs",
+  "optional": true
+ },
+ {
+  "source": "CertRepMessage",
+  "target": "CertResponse",
+  "field": "response",
+  "optional": false
+ },
+ {
+  "source": "CertResponse",
+  "target": "PKIStatusInfo",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "CertResponse",
+  "target": "CertifiedKeyPair",
+  "field": "certifiedKeyPair",
+  "optional": true
+ },
+ {
+  "source": "CertifiedKeyPair",
+  "target": "CertOrEncCert",
+  "field": "certOrEncCert",
+  "optional": false
+ },
+ {
+  "source": "CertifiedKeyPair",
+  "target": "EncryptedValue",
+  "field": "privateKey",
+  "optional": true
+ },
+ {
+  "source": "CertifiedKeyPair",
+  "target": "PKIPublicationInfo",
+  "field": "publicationInfo",
+  "optional": true
+ },
+ {
+  "source": "CertOrEncCert",
+  "target": "CMPCertificate",
+  "field": "certificate",
+  "optional": false
+ },
+ {
+  "source": "CertOrEncCert",
+  "target": "EncryptedValue",
+  "field": "encryptedCert",
+  "optional": false
+ },
+ {
+  "source": "KeyRecRepContent",
+  "target": "PKIStatusInfo",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "KeyRecRepContent",
+  "target": "CMPCertificate",
+  "field": "newSigCert",
+  "optional": true
+ },
+ {
+  "source": "KeyRecRepContent",
+  "target": "CMPCertificate",
+  "field": "caCerts",
+  "optional": true
+ },
+ {
+  "source": "KeyRecRepContent",
+  "target": "CertifiedKeyPair",
+  "field": "keyPairHist",
+  "optional": true
+ },
+ {
+  "source": "RevReqContent",
+  "target": "RevDetails",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "RevDetails",
+  "target": "CertTemplate",
+  "field": "certDetails",
+  "optional": false
+ },
+ {
+  "source": "RevDetails",
+  "target": "Extensions",
+  "field": "crlEntryDetails",
+  "optional": true
+ },
+ {
+  "source": "RevRepContent",
+  "target": "PKIStatusInfo",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "RevRepContent",
+  "target": "CertId",
+  "field": "revCerts",
+  "optional": true
+ },
+ {
+  "source": "RevRepContent",
+  "target": "CertificateList",
+  "field": "crls",
+  "optional": true
+ },
+ {
+  "source": "CAKeyUpdAnnContent",
+  "target": "CMPCertificate",
+  "field": "oldWithNew",
+  "optional": false
+ },
+ {
+  "source": "CAKeyUpdAnnContent",
+  "target": "CMPCertificate",
+  "field": "newWithOld",
+  "optional": false
+ },
+ {
+  "source": "CAKeyUpdAnnContent",
+  "target": "CMPCertificate",
+  "field": "newWithNew",
+  "optional": false
+ },
+ {
+  "source": "CertAnnContent",
+  "target": "CMPCertificate",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "RevAnnContent",
+  "target": "PKIStatus",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "RevAnnContent",
+  "target": "CertId",
+  "field": "certId",
+  "optional": false
+ },
+ {
+  "source": "RevAnnContent",
+  "target": "Extensions",
+  "field": "crlDetails",
+  "optional": true
+ },
+ {
+  "source": "CRLAnnContent",
+  "target": "CertificateList",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertConfirmContent",
+  "target": "CertStatus",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertStatus",
+  "target": "PKIStatusInfo",
+  "field": "statusInfo",
+  "optional": true
+ },
+ {
+  "source": "GenMsgContent",
+  "target": "InfoTypeAndValue",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "GenRepContent",
+  "target": "InfoTypeAndValue",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ErrorMsgContent",
+  "target": "PKIStatusInfo",
+  "field": "pKIStatusInfo",
+  "optional": false
+ },
+ {
+  "source": "ErrorMsgContent",
+  "target": "PKIFreeText",
+  "field": "errorDetails",
+  "optional": true
+ },
+ {
+  "source": "PollRepContent",
+  "target": "PKIFreeText",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertReqMessages",
+  "target": "CertReqMsg",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertReqMsg",
+  "target": "CertRequest",
+  "field": "certReq",
+  "optional": false
+ },
+ {
+  "source": "CertReqMsg",
+  "target": "ProofOfPossession",
+  "field": "popo",
+  "optional": true
+ },
+ {
+  "source": "CertReqMsg",
+  "target": "PKIXCRMF-2005.AttributeTypeAndValue",
+  "field": "regInfo",
+  "optional": true
+ },
+ {
+  "source": "CertRequest",
+  "target": "CertTemplate",
+  "field": "certTemplate",
+  "optional": false
+ },
+ {
+  "source": "CertRequest",
+  "target": "Controls",
+  "field": "controls",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "Version",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "AlgorithmIdentifier",
+  "field": "signingAlg",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "Name",
+  "field": "issuer",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "OptionalValidity",
+  "field": "validity",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "Name",
+  "field": "subject",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "SubjectPublicKeyInfo",
+  "field": "publicKey",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "UniqueIdentifier",
+  "field": "issuerUID",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "UniqueIdentifier",
+  "field": "subjectUID",
+  "optional": true
+ },
+ {
+  "source": "CertTemplate",
+  "target": "Extensions",
+  "field": "extensions",
+  "optional": true
+ },
+ {
+  "source": "OptionalValidity",
+  "target": "PKIX1Explicit88.Time",
+  "field": "notBefore",
+  "optional": true
+ },
+ {
+  "source": "OptionalValidity",
+  "target": "PKIX1Explicit88.Time",
+  "field": "notAfter",
+  "optional": true
+ },
+ {
+  "source": "Controls",
+  "target": "PKIXCRMF-2005.AttributeTypeAndValue",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ProofOfPossession",
+  "target": "POPOSigningKey",
+  "field": "signature",
+  "optional": false
+ },
+ {
+  "source": "ProofOfPossession",
+  "target": "POPOPrivKey",
+  "field": "keyEncipherment",
+  "optional": false
+ },
+ {
+  "source": "ProofOfPossession",
+  "target": "POPOPrivKey",
+  "field": "keyAgreement",
+  "optional": false
+ },
+ {
+  "source": "POPOSigningKey",
+  "target": "POPOSigningKeyInput",
+  "field": "poposkInput",
+  "optional": true
+ },
+ {
+  "source": "POPOSigningKey",
+  "target": "AlgorithmIdentifier",
+  "field": "algorithmIdentifier",
+  "optional": false
+ },
+ {
+  "source": "POPOSigningKeyInput",
+  "target": "GeneralName",
+  "field": "authInfo",
+  "optional": false
+ },
+ {
+  "source": "POPOSigningKeyInput",
+  "target": "PKMACValue",
+  "field": "authInfo",
+  "optional": false
+ },
+ {
+  "source": "POPOSigningKeyInput",
+  "target": "SubjectPublicKeyInfo",
+  "field": "publicKey",
+  "optional": false
+ },
+ {
+  "source": "PKMACValue",
+  "target": "AlgorithmIdentifier",
+  "field": "algId",
+  "optional": false
+ },
+ {
+  "source": "PKIXCRMF-2005.PBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "owf",
+  "optional": false
+ },
+ {
+  "source": "PKIXCRMF-2005.PBMParameter",
+  "target": "AlgorithmIdentifier",
+  "field": "mac",
+  "optional": false
+ },
+ {
+  "source": "POPOPrivKey",
+  "target": "SubsequentMessage",
+  "field": "subsequentMessage",
+  "optional": false
+ },
+ {
+  "source": "POPOPrivKey",
+  "target": "PKMACValue",
+  "field": "agreeMAC",
+  "optional": false
+ },
+ {
+  "source": "POPOPrivKey",
+  "target": "EnvelopedData",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "PKIPublicationInfo",
+  "target": "SinglePubInfo",
+  "field": "pubInfos",
+  "optional": true
+ },
+ {
+  "source": "SinglePubInfo",
+  "target": "GeneralName",
+  "field": "pubLocation",
+  "optional": true
+ },
+ {
+  "source": "PKIArchiveOptions",
+  "target": "PKIXCRMF-2005.EncryptedKey",
+  "field": "encryptedPrivKey",
+  "optional": false
+ },
+ {
+  "source": "PKIArchiveOptions",
+  "target": "KeyGenParameters",
+  "field": "keyGenParameters",
+  "optional": false
+ },
+ {
+  "source": "PKIXCRMF-2005.EncryptedKey",
+  "target": "EncryptedValue",
+  "field": "encryptedValue",
+  "optional": false
+ },
+ {
+  "source": "PKIXCRMF-2005.EncryptedKey",
+  "target": "EnvelopedData",
+  "field": "envelopedData",
+  "optional": false
+ },
+ {
+  "source": "EncryptedValue",
+  "target": "AlgorithmIdentifier",
+  "field": "intendedAlg",
+  "optional": true
+ },
+ {
+  "source": "EncryptedValue",
+  "target": "AlgorithmIdentifier",
+  "field": "symmAlg",
+  "optional": true
+ },
+ {
+  "source": "EncryptedValue",
+  "target": "AlgorithmIdentifier",
+  "field": "keyAlg",
+  "optional": true
+ },
+ {
+  "source": "OldCertId",
+  "target": "CertId",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CertId",
+  "target": "GeneralName",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "ProtocolEncrKey",
+  "target": "SubjectPublicKeyInfo",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CertReq",
+  "target": "CertRequest",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "EncKeyWithID",
+  "target": "PrivateKeyInfo",
+  "field": "privateKey",
+  "optional": false
+ },
+ {
+  "source": "EncKeyWithID",
+  "target": "GeneralName",
+  "field": "identifier",
+  "optional": true
+ },
+ {
+  "source": "PrivateKeyInfo",
+  "target": "AlgorithmIdentifier",
+  "field": "privateKeyAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "PrivateKeyInfo",
+  "target": "Attributes",
+  "field": "attributes",
+  "optional": true
+ },
+ {
+  "source": "Attributes",
+  "target": "PKIX1Explicit88.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ContentInfo",
+  "target": "SignedData",
+  "field": "content (by contentType)",
+  "optional": false,
+  "implicit": true
+ },
+ {
+  "source": "ContentInfo",
+  "target": "EnvelopedData",
+  "field": "content (by contentType)",
+  "optional": false,
+  "implicit": true
+ },
+ {
+  "source": "ContentInfo",
+  "target": "DigestedData",
+  "field": "content (by contentType)",
+  "optional": false,
+  "implicit": true
+ },
+ {
+  "source": "ContentInfo",
+  "target": "EncryptedData",
+  "field": "content (by contentType)",
+  "optional": false,
+  "implicit": true
+ },
+ {
+  "source": "ContentInfo",
+  "target": "AuthenticatedData",
+  "field": "content (by contentType)",
+  "optional": false,
+  "implicit": true
+ }
+]
