@@ -1,56 +1,209 @@
 [
  {
-  "file": "rfc5652_CryptographicMessageSyntax2004.asn",
-  "module": "CryptographicMessageSyntax2004",
-  "rfc": 5652,
+  "file": "rfc5911_AlgorithmInformation-2009.asn",
+  "module": "AlgorithmInformation-2009",
+  "rfc": 5911,
   "standard": "CMS",
-  "section": "12.1",
-  "start_line": 2417,
-  "end_line": 2798
+  "section": "2",
+  "start_line": 216,
+  "end_line": 763
  },
  {
-  "file": "rfc5652_AttributeCertificateVersion1.asn",
-  "module": "AttributeCertificateVersion1",
-  "rfc": 5652,
+  "file": "rfc5911_CryptographicMessageSyntaxAlgorithms-2009.asn",
+  "module": "CryptographicMessageSyntaxAlgorithms-2009",
+  "rfc": 5911,
   "standard": "CMS",
-  "section": "12.2",
-  "start_line": 2809,
-  "end_line": 2880
+  "section": "3",
+  "start_line": 767,
+  "end_line": 1052
  },
  {
-  "file": "rfc5280_PKIX1Explicit88.asn",
-  "module": "PKIX1Explicit88",
-  "rfc": 5280,
+  "file": "rfc5911_CMSAesRsaesOaep-2009.asn",
+  "module": "CMSAesRsaesOaep-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "4",
+  "start_line": 1073,
+  "end_line": 1166
+ },
+ {
+  "file": "rfc5911_SecureMimeMessageV3dot1-2009.asn",
+  "module": "SecureMimeMessageV3dot1-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "5",
+  "start_line": 1185,
+  "end_line": 1322
+ },
+ {
+  "file": "rfc5911_CryptographicMessageSyntax-2009.asn",
+  "module": "CryptographicMessageSyntax-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "6",
+  "start_line": 1339,
+  "end_line": 1878
+ },
+ {
+  "file": "rfc5911_ExtendedSecurityServices-2009.asn",
+  "module": "ExtendedSecurityServices-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "9",
+  "start_line": 2285,
+  "end_line": 2598
+ },
+ {
+  "file": "rfc5911_CMS-AuthEnvelopedData-2009.asn",
+  "module": "CMS-AuthEnvelopedData-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "10",
+  "start_line": 2602,
+  "end_line": 2644
+ },
+ {
+  "file": "rfc5911_CMS-AES-CCM-and-AES-GCM-2009.asn",
+  "module": "CMS-AES-CCM-and-AES-GCM-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "11",
+  "start_line": 2648,
+  "end_line": 2756
+ },
+ {
+  "file": "rfc5911_SMIMESymmetricKeyDistribution-2009.asn",
+  "module": "SMIMESymmetricKeyDistribution-2009",
+  "rfc": 5911,
+  "standard": "CMS",
+  "section": "12",
+  "start_line": 2760,
+  "end_line": 3170
+ },
+ {
+  "file": "rfc3274_CompressedDataContent.asn",
+  "module": "CompressedDataContent",
+  "rfc": 3274,
+  "standard": "CMS",
+  "section": "4",
+  "start_line": 233,
+  "end_line": 265
+ },
+ {
+  "file": "rfc6211_CMSAlgorithmProtectionAttribute.asn",
+  "module": "CMSAlgorithmProtectionAttribute",
+  "rfc": 6211,
+  "standard": "CMS",
+  "section": "6.2",
+  "start_line": 518,
+  "end_line": 578
+ },
+ {
+  "file": "rfc5753_CMSECCAlgs-2009-02.asn",
+  "module": "CMSECCAlgs-2009-02",
+  "rfc": 5753,
+  "standard": "CMS",
+  "section": "A",
+  "start_line": 2473,
+  "end_line": 3237
+ },
+ {
+  "file": "rfc5912_PKIX-CommonTypes-2009.asn",
+  "module": "PKIX-CommonTypes-2009",
+  "rfc": 5912,
   "standard": "X.509",
-  "section": "A.1",
-  "start_line": 6129,
-  "end_line": 6954
+  "section": "2",
+  "start_line": 237,
+  "end_line": 426
  },
  {
-  "file": "rfc5280_PKIX1Implicit88.asn",
-  "module": "PKIX1Implicit88",
-  "rfc": 5280,
+  "file": "rfc5912_PKCS-10.asn",
+  "module": "PKCS-10",
+  "rfc": 5912,
   "standard": "X.509",
-  "section": "A.2",
-  "start_line": 6958,
-  "end_line": 7405
+  "section": "5",
+  "start_line": 1199,
+  "end_line": 1262
  },
  {
-  "file": "rfc4210_PKIXCMP.asn",
-  "module": "PKIXCMP",
-  "rfc": 4210,
+  "file": "rfc5912_PKIXAlgs-2009.asn",
+  "module": "PKIXAlgs-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "6",
+  "start_line": 1269,
+  "end_line": 1881
+ },
+ {
+  "file": "rfc5912_AttributeCertificateVersion1-2009.asn",
+  "module": "AttributeCertificateVersion1-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "7",
+  "start_line": 1885,
+  "end_line": 1951
+ },
+ {
+  "file": "rfc5912_PKIX1-PSS-OAEP-Algorithms-2009.asn",
+  "module": "PKIX1-PSS-OAEP-Algorithms-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "8",
+  "start_line": 1969,
+  "end_line": 2324
+ },
+ {
+  "file": "rfc5912_PKIXCRMF-2009.asn",
+  "module": "PKIXCRMF-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "10",
+  "start_line": 2921,
+  "end_line": 3391
+ },
+ {
+  "file": "rfc5912_PKIXAttributeCertificate-2009.asn",
+  "module": "PKIXAttributeCertificate-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "13",
+  "start_line": 4735,
+  "end_line": 5074
+ },
+ {
+  "file": "rfc5912_PKIX1Explicit-2009.asn",
+  "module": "PKIX1Explicit-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "14",
+  "start_line": 5081,
+  "end_line": 5564
+ },
+ {
+  "file": "rfc5912_PKIX1Implicit-2009.asn",
+  "module": "PKIX1Implicit-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "14",
+  "start_line": 5567,
+  "end_line": 6083
+ },
+ {
+  "file": "rfc5912_PKIX-X400Address-2009.asn",
+  "module": "PKIX-X400Address-2009",
+  "rfc": 5912,
+  "standard": "X.509",
+  "section": "14",
+  "start_line": 6091,
+  "end_line": 6431
+ },
+ {
+  "file": "rfc9810_PKIXCMP-2023.asn",
+  "module": "PKIXCMP-2023",
+  "rfc": 9810,
   "standard": "CMP",
   "section": "F",
-  "start_line": 4606,
-  "end_line": 5181
- },
- {
-  "file": "rfc4211_PKIXCRMF-2005.asn",
-  "module": "PKIXCRMF-2005",
-  "rfc": 4211,
-  "standard": "CRMF",
-  "section": "B",
-  "start_line": 1745,
-  "end_line": 2070
+  "start_line": 5439,
+  "end_line": 6175
  }
 ]

@@ -2,7 +2,8 @@
 """Parse asn1/*.asn and emit site/data/nodes.json and edges.json."""
 import json, re, sys
 from pathlib import Path
-import asn1tools
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import asn1parse
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILTIN = {
@@ -13,7 +14,7 @@ BUILTIN = {
     "UTCTime", "GeneralizedTime", "GeneralString", "GraphicString", "REAL", "NULL",
     "OpenType", "EXTERNAL", "ObjectDescriptor",
 }
-ASSIGN_RE = re.compile(r"^\s*([A-Za-z][\w-]*)(\s+[A-Z][A-Z ]*)?\s*::=")
+ASSIGN_RE = re.compile(r"^\s*([A-Za-z][\w-]*)\s*(\{[^}]*\})?(\s+[A-Z][A-Z -]*)?\s*::=")
 
 
 def tag_str(t):
@@ -41,8 +42,10 @@ def type_label(m):
 def collect_refs(d, out):
     """Collect referenced type names in a type definition (recursively)."""
     t = d.get("type")
-    if t and t not in BUILTIN:
+    if t and t not in BUILTIN and not d.get("noref") and not t.startswith("INSTANCE OF"):
         out.append(t)
+    for a in d.get("argrefs", []):
+        out.append("?" + a)  # soft ref: only linked if it resolves to a known type
     for m in d.get("members", []) or []:
         if isinstance(m, dict):
             collect_refs(m, out)
@@ -101,9 +104,10 @@ def main():
     mods = {}
     for ent in manifest:
         p = ROOT / "asn1" / ent["file"]
-        parsed = asn1tools.parse_files(str(p))
-        for mname, m in parsed.items():
-            mods[mname] = (m, ent, source_spans(p.read_text()))
+        mname, m = asn1parse.parse_module(p.read_text())
+        if mname in mods:
+            print(f"warning: module {mname} defined twice; keeping {ent['file']}", file=sys.stderr)
+        mods[mname] = (m, ent, source_spans(p.read_text()))
 
     # node ids: plain name unless it collides
     count = {}
@@ -119,6 +123,15 @@ def main():
     nodes, edges, stubs, warnings = {}, [], {}, []
 
     def resolve(mod, ref):
+        if ref.startswith("?"):
+            ref = ref[1:]
+            m = mods[mod][0]
+            if ref in m["types"]:
+                return nid(mod, ref)
+            for src, names in m["imports"].items():
+                if ref in names and src in mods and ref in mods[src][0]["types"]:
+                    return nid(src, ref)
+            return None
         m = mods[mod][0]
         if ref in m["types"]:
             return nid(mod, ref)
@@ -142,22 +155,24 @@ def main():
                 "standard": ent["standard"], "tag": tag_str(d.get("tag")),
                 "fields": fields, "source": spans.get(tname),
             }
-            if d["type"] not in BUILTIN:  # alias to another type
+            if d["type"] not in BUILTIN and not d.get("noref"):  # alias to another type
                 node["fields"] = [{"name": "(alias)", "type": d["type"], "tag": None, "optional": False,
-                                   "default": None, "refs": [d["type"]]}]
+                                   "default": None, "refs": [d["type"]] + ["?" + a for a in d.get("argrefs", [])]}]
             nodes[node["id"]] = node
 
     def walk_fields(node_id, mod, fields, prefix=""):
         for f in fields:
             for r in f.get("refs", []):
-                f.setdefault("targets", []).append(resolve(mod, r))
+                tgt = resolve(mod, r)
+                if tgt:
+                    f.setdefault("targets", []).append(tgt)
             for tgt in f.get("targets", []):
                 edges.append({"source": node_id, "target": tgt, "field": prefix + f["name"],
                               "optional": f["optional"] or f["default"] is not None})
             if f.get("inline"):
                 # inline refs are already counted via collect_refs on the parent field
                 for sub in f["inline"]:
-                    sub.setdefault("targets", [resolve(mod, r) for r in sub.get("refs", [])])
+                    sub.setdefault("targets", [x for x in (resolve(mod, r) for r in sub.get("refs", [])) if x])
             f["ref"] = f["targets"][0] if f.get("targets") else None
             f.pop("refs", None)
 

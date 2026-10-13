@@ -1,0 +1,33 @@
+   CompressedDataContent
+     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-9(9)
+       smime(16) modules(0) compress(11) }
+
+   DEFINITIONS IMPLICIT TAGS ::=
+   BEGIN
+
+   IMPORTS
+     CMSVersion, EncapsulatedContentInfo FROM CryptographicMessageSyntax
+       { iso(1) member-body(2) us(840) rsadsi(113549)
+         pkcs(1) pkcs-9(9) smime(16) modules(0) cms(1) }
+     AlgorithmIdentifier FROM AuthenticationFramework
+       { joint-iso-itu-t ds(5) module(1) authenticationFramework(7) 3 };
+
+   CompressedData ::= SEQUENCE {
+     version CMSVersion,       -- Always set to 0
+     compressionAlgorithm CompressionAlgorithmIdentifier,
+     encapContentInfo EncapsulatedContentInfo
+     }
+
+   CompressionAlgorithmIdentifier ::= AlgorithmIdentifier
+
+   -- Algorithm Identifiers
+
+   id-alg-zlibCompress OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+       us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) alg(3) 8 }
+
+   -- Content Type Object Identifiers
+
+   id-ct-compressedData OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+       us(840) rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) ct(1) 9 }
+
+   END

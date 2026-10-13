@@ -1,0 +1,21 @@
+# RFCs to import ASN.1 modules from.
+# Format: <RFC number> <label> [skip=Module1,Module2]
+#   - one RFC per line; '#' starts a comment
+#   - label is used for the graph colour/filter
+#   - skip= lists modules to leave out (out of scope, or duplicated elsewhere)
+# To add an RFC, add a line and rerun:
+#   python scripts/fetch_rfcs.py && python scripts/build_graph.py
+#
+# Types referenced but not defined in any listed RFC appear as External stubs.
+
+# CMS (2009 ASN.1 modules; supersede the modules in RFC 5652)
+5911 CMS skip=CMSFirmwareWrapper-2009,ERS,SMIMESymmetricKeyDistribution
+3274 CMS
+6211 CMS
+5753 CMS skip=CMSECCAlgs-2009-88
+
+# X.509 / PKIX (2009 ASN.1 modules; supersede RFC 5280 / 5755 / 2986 / 4211 modules)
+5912 X.509 skip=AlgorithmInformation-2009,OCSP-2009,SCVP-2009,EnrollmentMessageSyntax-2009,PKIXCMP-2009
+
+# CMP (current spec, replaces RFC 4210)
+9810 CMP

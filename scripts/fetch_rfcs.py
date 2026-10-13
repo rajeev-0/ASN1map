@@ -4,11 +4,25 @@ import json, re, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-RFCS = {5652: "CMS", 5280: "X.509", 4210: "CMP", 4211: "CRMF"}
 END_RE = re.compile(r"^\s*END\b\s*(--.*)?$")
 HDR_RE = re.compile(r"^RFC \d+\s+.*\d{4}\s*$")
 FTR_RE = re.compile(r"\[Page \d+\]\s*$")
-SEC_RE = re.compile(r"^(\d+(?:\.\d+)*|[A-Z](?:\.\d+)*)\.?\s+\S")
+
+
+def load_rfcs():
+    """Read RFC-source.txt: '<number> <label> [skip=Mod1,Mod2]' per line, '#' comments."""
+    rfcs = {}
+    for line in (ROOT / "RFC-source.txt").read_text().splitlines():
+        line = line.split("#", 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        skip = set()
+        for p in [x for x in parts[2:] if x.startswith("skip=")]:
+            skip |= set(p[5:].split(","))
+        label = parts[1] if len(parts) > 1 and not parts[1].startswith("skip=") else f"RFC {parts[0]}"
+        rfcs[int(parts[0])] = (label, skip)
+    return rfcs
 
 
 def fetch(n):
@@ -37,8 +51,10 @@ def section_at(lines, lineno):
 
 def main():
     (ROOT / "asn1").mkdir(exist_ok=True)
+    for old in (ROOT / "asn1").glob("*.asn"):
+        old.unlink()
     manifest = []
-    for n, std in RFCS.items():
+    for n, (std, skip) in load_rfcs().items():
         raw = fetch(n)
         cl = clean(raw)
         i = 0
@@ -57,6 +73,11 @@ def main():
                     block = block[1:]
                 text = "\n".join(l for _, l in block)
                 name = re.match(r"\s*([A-Za-z0-9-]+)", block[0][1]).group(1)
+                if name in skip:
+                    print("skipped  ", f"rfc{n}_{name}")
+                    i = e
+                    i += 1
+                    continue
                 fname = f"rfc{n}_{name}.asn"
                 (ROOT / "asn1" / fname).write_text(text + "\n")
                 manifest.append({

@@ -4,8 +4,10 @@
     fetch("data/edges.json").then(r => r.json()),
   ]);
   const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
-  const STD = ["CMS", "X.509", "CMP", "CRMF", "External"];
-  const COLORS = {"CMS": "#4c8bf5", "X.509": "#2eaa6b", "CMP": "#e8833a", "CRMF": "#a05ccf", "External": "#999"};
+  const PALETTE = ["#4c8bf5", "#2eaa6b", "#e8833a", "#a05ccf", "#d6457a", "#c9a227", "#2aa5b8", "#7a8b3c"];
+  const STD = [...new Set(nodes.map(n => n.standard))].sort((a, b) => (a === "External") - (b === "External"));
+  const COLORS = {};
+  STD.forEach((s, i) => COLORS[s] = s === "External" ? "#999" : PALETTE[i % PALETTE.length]);
   const enabled = new Set(STD);
   const $ = id => document.getElementById(id);
   let current = null;
