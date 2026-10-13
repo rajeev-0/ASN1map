@@ -73,7 +73,10 @@
   const link = id => byId[id] ? `<span class="link" data-go="${esc(id)}">${esc(byId[id].name)}</span>` : esc(id);
   function typeCell(f) {
     let t = esc(f.type);
-    (f.targets || []).forEach(id => { const n = byId[id].name; t = t.replace(new RegExp("\\b" + n.replace(/[-.]/g, "\\$&") + "\\b"), link(id)); });
+    (f.targets || []).forEach(id => {
+      const n = byId[id].name, re = new RegExp("\\b" + n.replace(/[-.]/g, "\\$&") + "\\b");
+      t = re.test(t) ? t.replace(re, link(id)) : t + " &rarr; " + link(id);
+    });
     return t;
   }
   function rows(fields, depth) {

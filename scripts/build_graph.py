@@ -109,6 +109,26 @@ def main():
             print(f"warning: module {mname} defined twice; keeping {ent['file']}", file=sys.stderr)
         mods[mname] = (m, ent, source_spans(p.read_text()))
 
+    # Link class-field references (e.g. CONTENT-TYPE.&id) to the alias type that
+    # names them in the same module (ContentType ::= CONTENT-TYPE.&id).
+    def link_aliases(d, alias_of, owner):
+        t = d.get("type", "")
+        if d.get("noref") and "." in t and t in alias_of and alias_of[t] != owner:
+            d.setdefault("argrefs", []).append(alias_of[t])
+        for m in d.get("members", []) or []:
+            if isinstance(m, dict):
+                link_aliases(m, alias_of, owner)
+        if isinstance(d.get("element"), dict):
+            link_aliases(d["element"], alias_of, owner)
+
+    for mname, (m, _, _) in mods.items():
+        alias_of = {}
+        for tname, d in m["types"].items():
+            if d.get("noref") and "." in d["type"] and "tag" not in d:
+                alias_of.setdefault(d["type"], tname)
+        for tname, d in m["types"].items():
+            link_aliases(d, alias_of, tname)
+
     # node ids: plain name unless it collides
     count = {}
     for mname, (m, _, _) in mods.items():

@@ -540,7 +540,10 @@
   "source": "  ContentType ::= CONTENT-TYPE.&id",
   "usedBy": [
    "ContentHints",
+   "ContentInfo",
    "ContentReference",
+   "EncapsulatedContentInfo",
+   "EncryptedContentInfo",
    "Receipt"
   ]
  },
@@ -560,7 +563,10 @@
     "tag": null,
     "optional": false,
     "default": null,
-    "ref": null
+    "targets": [
+     "ContentType"
+    ],
+    "ref": "ContentType"
    },
    {
     "name": "content",
@@ -699,7 +705,10 @@
     "tag": null,
     "optional": false,
     "default": null,
-    "ref": null
+    "targets": [
+     "ContentType"
+    ],
+    "ref": "ContentType"
    },
    {
     "name": "eContent",
@@ -1052,7 +1061,10 @@
     "tag": null,
     "optional": false,
     "default": null,
-    "ref": null
+    "targets": [
+     "ContentType"
+    ],
+    "ref": "ContentType"
    },
    {
     "name": "contentEncryptionAlgorithm",

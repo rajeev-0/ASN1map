@@ -66,6 +66,12 @@
   "optional": false
  },
  {
+  "source": "ContentInfo",
+  "target": "ContentType",
+  "field": "contentType",
+  "optional": false
+ },
+ {
   "source": "SignedData",
   "target": "CMSVersion",
   "field": "version",
@@ -105,6 +111,12 @@
   "source": "SignerInfos",
   "target": "SignerInfo",
   "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "EncapsulatedContentInfo",
+  "target": "ContentType",
+  "field": "eContentType",
   "optional": false
  },
  {
@@ -213,6 +225,12 @@
   "source": "RecipientInfos",
   "target": "RecipientInfo",
   "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "EncryptedContentInfo",
+  "target": "ContentType",
+  "field": "contentType",
   "optional": false
  },
  {
