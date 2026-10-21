@@ -4,7 +4,7 @@
     fetch("data/edges.json").then(r => r.json()),
   ]);
   const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
-  const PALETTE = ["#4c8bf5", "#2eaa6b", "#e8833a", "#a05ccf", "#d6457a", "#c9a227", "#2aa5b8", "#7a8b3c"];
+  const PALETTE = ["#4c8bf5", "#2eaa6b", "#e8833a", "#a05ccf", "#d6457a", "#c9a227", "#2aa5b8", "#7a8b3c", "#8c564b", "#17becf", "#bcbd22", "#e377c2", "#ff7f0e", "#3b5998", "#9467bd", "#555"];
   const STD = [...new Set(nodes.map(n => n.standard))].sort((a, b) => (a === "External") - (b === "External"));
   const COLORS = {};
   STD.forEach((s, i) => COLORS[s] = s === "External" ? "#999" : PALETTE[i % PALETTE.length]);

@@ -1,0 +1,90 @@
+   DH-Sign
+      { iso(1) identified-organization(3) dod(6) internet(1)
+        security(5) mechanisms(5) pkix(7) id-mod(0)
+        id-mod-dhSign-2012-88(79) }
+   DEFINITIONS IMPLICIT TAGS ::=
+
+   BEGIN
+   -- EXPORTS ALL
+   -- The types and values defined in this module are exported for use
+   -- in the other ASN.1 modules.  Other applications may use them
+   -- for their own purposes.
+
+   IMPORTS
+      IssuerAndSerialNumber, MessageDigest
+      FROM CryptographicMessageSyntax2004
+         { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
+           pkcs-9(9) smime(16) modules(0) cms-2004(24) }
+
+      id-pkix
+      FROM PKIX1Explicit88
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-pkix1-explicit(18) }
+
+      Dss-Sig-Value, DomainParameters
+      FROM PKIX1Algorithms88
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-pkix1-algorithms(17) };
+
+      id-dh-sig-hmac-sha1 OBJECT IDENTIFIER ::= {id-pkix id-alg(6) 3}
+
+      DhSigStatic ::= SEQUENCE {
+          issuerAndSerial IssuerAndSerialNumber OPTIONAL,
+          hashValue       MessageDigest
+      }
+
+      id-alg-dh-pop OBJECT IDENTIFIER ::= { id-pkix id-alg(6) 4 }
+
+
+
+
+
+
+
+
+      id-dhPop-static-sha1-hmac-sha1 OBJECT IDENTIFIER ::=
+           id-dh-sig-hmac-sha1
+
+      id-alg-dhPop-static-sha224-hmac-sha224 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 15 }
+
+      id-alg-dhPop-static-sha256-hmac-sha256 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 16 }
+
+      id-alg-dhPop-static-sha384-hmac-sha384 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 17 }
+
+      id-alg-dhPop-static-sha512-hmac-sha512 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 18 }
+
+
+      id-alg-dhPop-sha1 OBJECT IDENTIFIER ::= id-alg-dh-pop
+
+      id-alg-dhPop-sha224 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 5 }
+
+      id-alg-dhPop-sha256 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 6 }
+
+      id-alg-dhPop-sha384 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 7 }
+
+      id-alg-dhPop-sha512 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 8 }
+
+
+      id-alg-ecdhPop-static-sha224-hmac-sha224 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 25 }
+
+      id-alg-ecdhPop-static-sha256-hmac-sha256 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 26 }
+
+      id-alg-ecdhPop-static-sha384-hmac-sha384 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 27 }
+
+      id-alg-ecdhPop-static-sha512-hmac-sha512 OBJECT IDENTIFIER ::= {
+           id-pkix id-alg(6) 28 }
+
+   END

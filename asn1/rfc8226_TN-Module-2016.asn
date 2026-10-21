@@ -1,0 +1,129 @@
+    TN-Module-2016
+      { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+        mechanisms(5) pkix(7) id-mod(0) id-mod-tn-module(89) }
+
+    DEFINITIONS EXPLICIT TAGS ::= BEGIN
+
+    IMPORTS
+
+    id-ad, id-pe
+    FROM PKIX1Explicit-2009  -- From RFC 5912
+      { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+        mechanisms(5) pkix(7) id-mod(0) id-mod-pkix1-explicit-02(51) }
+
+    EXTENSION
+    FROM PKIX-CommonTypes-2009  -- From RFC 5912
+      { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+        mechanisms(5) pkix(7) id-mod(0) id-mod-pkixCommon-02(57) }
+
+    ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    --
+    -- JWT Claim Constraints Certificate Extension
+    --
+
+    ext-jwtClaimConstraints EXTENSION  ::= {
+      SYNTAX JWTClaimConstraints IDENTIFIED BY id-pe-JWTClaimConstraints
+      }
+
+    id-pe-JWTClaimConstraints OBJECT IDENTIFIER ::= { id-pe 27 }
+
+    JWTClaimConstraints ::= SEQUENCE {
+      mustInclude [0] JWTClaimNames OPTIONAL,
+        -- The listed claim names MUST appear in the PASSporT
+        -- in addition to iat, orig, and dest.  If absent, iat, orig,
+        -- and dest MUST appear in the PASSporT.
+      permittedValues [1] JWTClaimPermittedValuesList OPTIONAL }
+        -- If the claim name is present, the claim MUST contain one of
+        -- the listed values.
+    ( WITH COMPONENTS { ..., mustInclude PRESENT } |
+      WITH COMPONENTS { ..., permittedValues PRESENT } )
+
+    JWTClaimPermittedValuesList ::= SEQUENCE SIZE (1..MAX) Of
+                                      JWTClaimPermittedValues
+
+    JWTClaimPermittedValues ::= SEQUENCE {
+      claim  JWTClaimName,
+      permitted  SEQUENCE SIZE (1..MAX) OF UTF8String }
+
+    JWTClaimNames ::= SEQUENCE SIZE (1..MAX) OF JWTClaimName
+
+    JWTClaimName ::= IA5String
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    --
+    -- Telephony Number Authorization List Certificate Extension
+    --
+
+    ext-tnAuthList  EXTENSION  ::= {
+      SYNTAX TNAuthorizationList IDENTIFIED BY id-pe-TNAuthList
+      }
+
+    id-pe-TNAuthList OBJECT IDENTIFIER ::= { id-pe 26 }
+
+    TNAuthorizationList ::= SEQUENCE SIZE (1..MAX) OF TNEntry
+
+    TNEntry ::= CHOICE {
+      spc    [0] ServiceProviderCode,
+      range  [1] TelephoneNumberRange,
+      one    [2] TelephoneNumber
+      }
+
+    ServiceProviderCode ::= IA5String
+
+    -- SPCs may be OCNs, various SPIDs, or other SP identifiers
+    -- from the telephone network.
+
+    TelephoneNumberRange ::= SEQUENCE {
+      start TelephoneNumber,
+      count INTEGER (2..MAX),
+      ...
+      }
+
+    TelephoneNumber ::= IA5String (SIZE (1..15)) (FROM ("0123456789#*"))
+
+    -- TN Access Descriptor
+
+    id-ad-stirTNList OBJECT IDENTIFIER ::= { id-ad 14 }
+
+    END

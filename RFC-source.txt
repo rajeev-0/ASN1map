@@ -19,3 +19,41 @@
 
 # CMP (current spec, replaces RFC 4210)
 9810 CMP
+
+# EST (RFC 8951 updates RFC 7030 CSR attributes handling)
+8951 EST
+
+# More PKIX / X.509
+# (3279, 4055, 3779, 2986, 2985 (PKCS-9) and 8017/8018 omitted: their modules duplicate types already in 5912/8360)
+3820 X.509
+6268 CMS skip=CompressedDataContent-2010,CMS-AuthEnvelopedData-2010,CryptographicMessageSyntax-2010,IPAddrAndASCertExtn-2010
+6955 X.509
+6960 OCSP skip=OCSP-2013-88
+4556 PKINIT
+8398 X.509
+8692 X.509
+8226 X.509
+8520 X.509
+7773 X.509 skip=ACE-88
+
+# RPKI
+6486 RPKI
+8360 RPKI skip=IPAddrAndASCertExtn-2010v2
+
+# More CMS / S/MIME
+# (5035, 5084, 3560, 3565, 4073, 5275, 8551 omitted: duplicates of modules in 5911 / 6268)
+6031 CMS
+6032 CMS
+7191 CMS
+8696 CMS
+8708 CMS
+9629 CMS
+9690 CMS
+3161 TSP
+5126 CAdES skip=ETS-ElectronicSignatureFormats-ExplicitSyntax88
+5914 TrustAnchor skip=TrustAnchorInfoModule-88
+5934 TrustAnchor skip=TAMP-Protocol-v2-88
+6010 TrustAnchor skip=CMSContentConstraintsCertExtn-88
+
+# CMC (6402 supersedes 5272)
+6402 CMC skip=EnrollmentMessageSyntax-2011-v88

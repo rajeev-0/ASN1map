@@ -709,7 +709,7 @@
  },
  {
   "source": "ExtendedCertificate",
-  "target": "Signature",
+  "target": "CryptographicMessageSyntax-2009.Signature",
   "field": "signature",
   "optional": false
  },
@@ -1332,13 +1332,13 @@
   "optional": false
  },
  {
-  "source": "CertificationRequest",
+  "source": "PKCS-10.CertificationRequest",
   "target": "CertificationRequestInfo",
   "field": "certificationRequestInfo",
   "optional": false
  },
  {
-  "source": "CertificationRequest",
+  "source": "PKCS-10.CertificationRequest",
   "target": "AlgorithmIdentifier",
   "field": "signatureAlgorithm",
   "optional": false
@@ -1507,7 +1507,7 @@
  },
  {
   "source": "CertTemplate",
-  "target": "Version",
+  "target": "PKIX1Explicit-2009.Version",
   "field": "version",
   "optional": true
  },
@@ -2107,7 +2107,7 @@
  },
  {
   "source": "TBSCertificate",
-  "target": "Version",
+  "target": "PKIX1Explicit-2009.Version",
   "field": "version",
   "optional": true
  },
@@ -2197,7 +2197,7 @@
  },
  {
   "source": "TBSCertList",
-  "target": "Version",
+  "target": "PKIX1Explicit-2009.Version",
   "field": "version",
   "optional": true
  },
@@ -2287,19 +2287,19 @@
  },
  {
   "source": "UserNotice",
-  "target": "NoticeReference",
+  "target": "PKIX1Implicit-2009.NoticeReference",
   "field": "noticeRef",
   "optional": true
  },
  {
   "source": "UserNotice",
-  "target": "DisplayText",
+  "target": "PKIX1Implicit-2009.DisplayText",
   "field": "explicitText",
   "optional": true
  },
  {
-  "source": "NoticeReference",
-  "target": "DisplayText",
+  "source": "PKIX1Implicit-2009.NoticeReference",
+  "target": "PKIX1Implicit-2009.DisplayText",
   "field": "organization",
   "optional": false
  },
@@ -2671,7 +2671,7 @@
  },
  {
   "source": "PKIBody",
-  "target": "CertificationRequest",
+  "target": "PKCS-10.CertificationRequest",
   "field": "p10cr",
   "optional": false
  },
@@ -2856,19 +2856,19 @@
   "optional": false
  },
  {
-  "source": "PKIStatusInfo",
-  "target": "PKIStatus",
+  "source": "PKIXCMP-2023.PKIStatusInfo",
+  "target": "PKIXCMP-2023.PKIStatus",
   "field": "status",
   "optional": false
  },
  {
-  "source": "PKIStatusInfo",
+  "source": "PKIXCMP-2023.PKIStatusInfo",
   "target": "PKIFreeText",
   "field": "statusString",
   "optional": true
  },
  {
-  "source": "PKIStatusInfo",
+  "source": "PKIXCMP-2023.PKIStatusInfo",
   "target": "PKIFailureInfo",
   "field": "failInfo",
   "optional": true
@@ -2929,7 +2929,7 @@
  },
  {
   "source": "CertResponse",
-  "target": "PKIStatusInfo",
+  "target": "PKIXCMP-2023.PKIStatusInfo",
   "field": "status",
   "optional": false
  },
@@ -2971,7 +2971,7 @@
  },
  {
   "source": "KeyRecRepContent",
-  "target": "PKIStatusInfo",
+  "target": "PKIXCMP-2023.PKIStatusInfo",
   "field": "status",
   "optional": false
  },
@@ -3013,7 +3013,7 @@
  },
  {
   "source": "RevRepContent",
-  "target": "PKIStatusInfo",
+  "target": "PKIXCMP-2023.PKIStatusInfo",
   "field": "status",
   "optional": false
  },
@@ -3067,7 +3067,7 @@
  },
  {
   "source": "RevAnnContent",
-  "target": "PKIStatus",
+  "target": "PKIXCMP-2023.PKIStatus",
   "field": "status",
   "optional": false
  },
@@ -3193,7 +3193,7 @@
  },
  {
   "source": "ErrorMsgContent",
-  "target": "PKIStatusInfo",
+  "target": "PKIXCMP-2023.PKIStatusInfo",
   "field": "pKIStatusInfo",
   "optional": false
  },
@@ -3205,18 +3205,18 @@
  },
  {
   "source": "CertConfirmContent",
-  "target": "CertStatus",
+  "target": "PKIXCMP-2023.CertStatus",
   "field": "(element)",
   "optional": false
  },
  {
-  "source": "CertStatus",
-  "target": "PKIStatusInfo",
+  "source": "PKIXCMP-2023.CertStatus",
+  "target": "PKIXCMP-2023.PKIStatusInfo",
   "field": "statusInfo",
   "optional": true
  },
  {
-  "source": "CertStatus",
+  "source": "PKIXCMP-2023.CertStatus",
   "target": "AlgorithmIdentifier",
   "field": "hashAlg",
   "optional": true
@@ -3226,6 +3226,2226 @@
   "target": "PKIFreeText",
   "field": "(element)",
   "optional": false
+ },
+ {
+  "source": "CsrAttrs",
+  "target": "AttrOrOID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "AttrOrOID",
+  "target": "CryptographicMessageSyntax-2009.Attribute",
+  "field": "attribute",
+  "optional": false
+ },
+ {
+  "source": "ProxyCertInfoExtension",
+  "target": "ProxyCertPathLengthConstraint",
+  "field": "pCPathLenConstraint",
+  "optional": true
+ },
+ {
+  "source": "ProxyCertInfoExtension",
+  "target": "ProxyPolicy",
+  "field": "proxyPolicy",
+  "optional": false
+ },
+ {
+  "source": "BinarySigningTime",
+  "target": "BinaryTime",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ContentCollection",
+  "target": "ContentInfo",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ContentWithAttributes",
+  "target": "ContentInfo",
+  "field": "content",
+  "optional": false
+ },
+ {
+  "source": "ContentWithAttributes",
+  "target": "AttributeSet",
+  "field": "attrs",
+  "optional": false
+ },
+ {
+  "source": "SSIDList",
+  "target": "SSID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "MultipleSignatures",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "bodyHashAlg",
+  "optional": false
+ },
+ {
+  "source": "MultipleSignatures",
+  "target": "SignatureAlgorithmIdentifier",
+  "field": "signAlg",
+  "optional": false
+ },
+ {
+  "source": "MultipleSignatures",
+  "target": "SignAttrsHash",
+  "field": "signAttrsHash",
+  "optional": false
+ },
+ {
+  "source": "MultipleSignatures",
+  "target": "ESSCertIDv2",
+  "field": "cert",
+  "optional": true
+ },
+ {
+  "source": "SignAttrsHash",
+  "target": "DigestAlgorithmIdentifier",
+  "field": "algID",
+  "optional": false
+ },
+ {
+  "source": "DhSigStatic",
+  "target": "IssuerAndSerialNumber",
+  "field": "issuerAndSerial",
+  "optional": true
+ },
+ {
+  "source": "DhSigStatic",
+  "target": "MessageDigest",
+  "field": "hashValue",
+  "optional": false
+ },
+ {
+  "source": "OCSPRequest",
+  "target": "TBSRequest",
+  "field": "tbsRequest",
+  "optional": false
+ },
+ {
+  "source": "OCSPRequest",
+  "target": "OCSP-2013-08.Signature",
+  "field": "optionalSignature",
+  "optional": true
+ },
+ {
+  "source": "TBSRequest",
+  "target": "OCSP-2013-08.Version",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TBSRequest",
+  "target": "GeneralName",
+  "field": "requestorName",
+  "optional": true
+ },
+ {
+  "source": "TBSRequest",
+  "target": "Request",
+  "field": "requestList",
+  "optional": false
+ },
+ {
+  "source": "TBSRequest",
+  "target": "Extensions",
+  "field": "requestExtensions",
+  "optional": true
+ },
+ {
+  "source": "OCSP-2013-08.Signature",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "OCSP-2013-08.Signature",
+  "target": "Certificate",
+  "field": "certs",
+  "optional": true
+ },
+ {
+  "source": "Request",
+  "target": "CertID",
+  "field": "reqCert",
+  "optional": false
+ },
+ {
+  "source": "Request",
+  "target": "Extensions",
+  "field": "singleRequestExtensions",
+  "optional": true
+ },
+ {
+  "source": "CertID",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "CertID",
+  "target": "CertificateSerialNumber",
+  "field": "serialNumber",
+  "optional": false
+ },
+ {
+  "source": "OCSPResponse",
+  "target": "OCSPResponseStatus",
+  "field": "responseStatus",
+  "optional": false
+ },
+ {
+  "source": "OCSPResponse",
+  "target": "ResponseBytes",
+  "field": "responseBytes",
+  "optional": true
+ },
+ {
+  "source": "BasicOCSPResponse",
+  "target": "ResponseData",
+  "field": "tbsResponseData",
+  "optional": false
+ },
+ {
+  "source": "BasicOCSPResponse",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "BasicOCSPResponse",
+  "target": "Certificate",
+  "field": "certs",
+  "optional": true
+ },
+ {
+  "source": "ResponseData",
+  "target": "OCSP-2013-08.Version",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "ResponseData",
+  "target": "ResponderID",
+  "field": "responderID",
+  "optional": false
+ },
+ {
+  "source": "ResponseData",
+  "target": "SingleResponse",
+  "field": "responses",
+  "optional": false
+ },
+ {
+  "source": "ResponseData",
+  "target": "Extensions",
+  "field": "responseExtensions",
+  "optional": true
+ },
+ {
+  "source": "ResponderID",
+  "target": "Name",
+  "field": "byName",
+  "optional": false
+ },
+ {
+  "source": "ResponderID",
+  "target": "KeyHash",
+  "field": "byKey",
+  "optional": false
+ },
+ {
+  "source": "SingleResponse",
+  "target": "CertID",
+  "field": "certID",
+  "optional": false
+ },
+ {
+  "source": "SingleResponse",
+  "target": "OCSP-2013-08.CertStatus",
+  "field": "certStatus",
+  "optional": false
+ },
+ {
+  "source": "SingleResponse",
+  "target": "Extensions",
+  "field": "singleExtensions",
+  "optional": true
+ },
+ {
+  "source": "OCSP-2013-08.CertStatus",
+  "target": "RevokedInfo",
+  "field": "revoked",
+  "optional": false
+ },
+ {
+  "source": "OCSP-2013-08.CertStatus",
+  "target": "UnknownInfo",
+  "field": "unknown",
+  "optional": false
+ },
+ {
+  "source": "RevokedInfo",
+  "target": "CRLReason",
+  "field": "revocationReason",
+  "optional": true
+ },
+ {
+  "source": "ServiceLocator",
+  "target": "Name",
+  "field": "issuer",
+  "optional": false
+ },
+ {
+  "source": "ServiceLocator",
+  "target": "AuthorityInfoAccessSyntax",
+  "field": "locator",
+  "optional": false
+ },
+ {
+  "source": "PreferredSignatureAlgorithms",
+  "target": "PreferredSignatureAlgorithm",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PreferredSignatureAlgorithm",
+  "target": "AlgorithmIdentifier",
+  "field": "sigIdentifier",
+  "optional": false
+ },
+ {
+  "source": "PreferredSignatureAlgorithm",
+  "target": "AlgorithmIdentifier",
+  "field": "certIdentifier",
+  "optional": true
+ },
+ {
+  "source": "JWTClaimConstraints",
+  "target": "JWTClaimNames",
+  "field": "mustInclude",
+  "optional": true
+ },
+ {
+  "source": "JWTClaimConstraints",
+  "target": "JWTClaimPermittedValuesList",
+  "field": "permittedValues",
+  "optional": true
+ },
+ {
+  "source": "JWTClaimPermittedValues",
+  "target": "JWTClaimName",
+  "field": "claim",
+  "optional": false
+ },
+ {
+  "source": "JWTClaimNames",
+  "target": "JWTClaimName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TNAuthorizationList",
+  "target": "TNEntry",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TNEntry",
+  "target": "ServiceProviderCode",
+  "field": "spc",
+  "optional": false
+ },
+ {
+  "source": "TNEntry",
+  "target": "TelephoneNumberRange",
+  "field": "range",
+  "optional": false
+ },
+ {
+  "source": "TNEntry",
+  "target": "TelephoneNumber",
+  "field": "one",
+  "optional": false
+ },
+ {
+  "source": "TelephoneNumberRange",
+  "target": "TelephoneNumber",
+  "field": "start",
+  "optional": false
+ },
+ {
+  "source": "MUDsignerSyntax",
+  "target": "Name",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "AuthenticationContexts",
+  "target": "AuthenticationContext",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "Manifest",
+  "target": "FileAndHash",
+  "field": "fileList",
+  "optional": false
+ },
+ {
+  "source": "SymmetricKeyPackage",
+  "target": "SymmetricKeyPackageModulev1.KeyPkgVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "SymmetricKeyPackage",
+  "target": "CryptographicMessageSyntax-2009.Attribute",
+  "field": "sKeyPkgAttrs",
+  "optional": true
+ },
+ {
+  "source": "SymmetricKeyPackage",
+  "target": "SymmetricKeys",
+  "field": "sKeys",
+  "optional": false
+ },
+ {
+  "source": "SymmetricKeys",
+  "target": "OneSymmetricKey",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "OneSymmetricKey",
+  "target": "CryptographicMessageSyntax-2009.Attribute",
+  "field": "sKeyAttrs",
+  "optional": true
+ },
+ {
+  "source": "PSKCAlgorithmParameters",
+  "target": "ChallengeFormat",
+  "field": "challengeFormat",
+  "optional": false
+ },
+ {
+  "source": "PSKCAlgorithmParameters",
+  "target": "ResponseFormat",
+  "field": "responseFormat",
+  "optional": false
+ },
+ {
+  "source": "ChallengeFormat",
+  "target": "Encoding",
+  "field": "encoding",
+  "optional": false
+ },
+ {
+  "source": "ResponseFormat",
+  "target": "Encoding",
+  "field": "encoding",
+  "optional": false
+ },
+ {
+  "source": "PSKCKeyUsages",
+  "target": "PSKCKeyUsage",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PINPolicy",
+  "target": "PINUsageMode",
+  "field": "pinUsageMode",
+  "optional": false
+ },
+ {
+  "source": "PINPolicy",
+  "target": "Encoding",
+  "field": "pinEncoding",
+  "optional": true
+ },
+ {
+  "source": "EncryptedKeyPackage",
+  "target": "EncryptedData",
+  "field": "encrypted",
+  "optional": false
+ },
+ {
+  "source": "EncryptedKeyPackage",
+  "target": "EnvelopedData",
+  "field": "enveloped",
+  "optional": false
+ },
+ {
+  "source": "EncryptedKeyPackage",
+  "target": "AuthEnvelopedData",
+  "field": "authEnveloped",
+  "optional": false
+ },
+ {
+  "source": "SIREntityNames",
+  "target": "SIREntityName",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "KeyPkgIdentifierAndReceiptReq",
+  "target": "KeyPkgID",
+  "field": "pkgID",
+  "optional": false
+ },
+ {
+  "source": "KeyPkgIdentifierAndReceiptReq",
+  "target": "KeyPkgReceiptReq",
+  "field": "receiptReq",
+  "optional": true
+ },
+ {
+  "source": "KeyPkgReceiptReq",
+  "target": "SIREntityNames",
+  "field": "receiptsFrom",
+  "optional": true
+ },
+ {
+  "source": "KeyPkgReceiptReq",
+  "target": "SIREntityNames",
+  "field": "receiptsTo",
+  "optional": false
+ },
+ {
+  "source": "KeyPackageReceipt",
+  "target": "KeyPackageReceiptAndErrorModuleV2.KeyPkgVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "KeyPackageReceipt",
+  "target": "KeyPkgIdentifier",
+  "field": "receiptOf",
+  "optional": false
+ },
+ {
+  "source": "KeyPackageReceipt",
+  "target": "SIREntityName",
+  "field": "receivedBy",
+  "optional": false
+ },
+ {
+  "source": "KeyPkgIdentifier",
+  "target": "KeyPkgID",
+  "field": "pkgID",
+  "optional": false
+ },
+ {
+  "source": "KeyPkgIdentifier",
+  "target": "SingleAttribute",
+  "field": "attribute",
+  "optional": false
+ },
+ {
+  "source": "KeyPackageError",
+  "target": "KeyPackageReceiptAndErrorModuleV2.KeyPkgVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "KeyPackageError",
+  "target": "KeyPkgIdentifier",
+  "field": "errorOf",
+  "optional": true
+ },
+ {
+  "source": "KeyPackageError",
+  "target": "SIREntityName",
+  "field": "errorBy",
+  "optional": false
+ },
+ {
+  "source": "KeyPackageError",
+  "target": "ErrorCodeChoice",
+  "field": "errorCode",
+  "optional": false
+ },
+ {
+  "source": "ErrorCodeChoice",
+  "target": "EnumeratedErrorCode",
+  "field": "enum",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "PreSharedKeyIdentifier",
+  "field": "pskid",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "KeyDerivationAlgorithmIdentifier",
+  "field": "kdfAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "KeyTransRecipientInfos",
+  "field": "ktris",
+  "optional": false
+ },
+ {
+  "source": "KeyTransPSKRecipientInfo",
+  "target": "CryptographicMessageSyntax-2009.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "KeyTransRecipientInfos",
+  "target": "KeyTransRecipientInfo",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "PreSharedKeyIdentifier",
+  "field": "pskid",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "OriginatorIdentifierOrKey",
+  "field": "originator",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "UserKeyingMaterial",
+  "field": "ukm",
+  "optional": true
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "KeyDerivationAlgorithmIdentifier",
+  "field": "kdfAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KeyAgreePSKRecipientInfo",
+  "target": "RecipientEncryptedKeys",
+  "field": "recipientEncryptedKeys",
+  "optional": false
+ },
+ {
+  "source": "CMSORIforPSKOtherInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "keyEncryptionAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "CMSVersion",
+  "field": "version",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "RecipientIdentifier",
+  "field": "rid",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "KEMAlgorithmIdentifier",
+  "field": "kem",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "KeyDerivationAlgorithmIdentifier",
+  "field": "kdf",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "UserKeyingMaterial",
+  "field": "ukm",
+  "optional": true
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "wrap",
+  "optional": false
+ },
+ {
+  "source": "KEMRecipientInfo",
+  "target": "CryptographicMessageSyntax-2009.EncryptedKey",
+  "field": "encryptedKey",
+  "optional": false
+ },
+ {
+  "source": "KEMAlgorithmIdentifier",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CMSORIforKEMOtherInfo",
+  "target": "KeyEncryptionAlgorithmIdentifier",
+  "field": "wrap",
+  "optional": false
+ },
+ {
+  "source": "CMSORIforKEMOtherInfo",
+  "target": "UserKeyingMaterial",
+  "field": "ukm",
+  "optional": true
+ },
+ {
+  "source": "GenericHybridParameters",
+  "target": "KeyEncapsulationMechanism",
+  "field": "kem",
+  "optional": false
+ },
+ {
+  "source": "GenericHybridParameters",
+  "target": "DataEncapsulationMechanism",
+  "field": "dem",
+  "optional": false
+ },
+ {
+  "source": "KeyEncapsulationMechanism",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "RsaKemParameters",
+  "target": "KeyDerivationFunction",
+  "field": "keyDerivationFunction",
+  "optional": false
+ },
+ {
+  "source": "RsaKemParameters",
+  "target": "KeyLength",
+  "field": "keyLength",
+  "optional": false
+ },
+ {
+  "source": "KeyDerivationFunction",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "DataEncapsulationMechanism",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "X9-SymmetricKeyWrappingScheme",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "Camellia-KeyWrappingScheme",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "KDF2-HashFunction",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "KDF3-HashFunction",
+  "target": "AlgorithmIdentifier",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "TimeStampReq",
+  "target": "MessageImprint",
+  "field": "messageImprint",
+  "optional": false
+ },
+ {
+  "source": "TimeStampReq",
+  "target": "TSAPolicyId",
+  "field": "reqPolicy",
+  "optional": true
+ },
+ {
+  "source": "TimeStampReq",
+  "target": "Extensions",
+  "field": "extensions",
+  "optional": true
+ },
+ {
+  "source": "MessageImprint",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "TimeStampResp",
+  "target": "PKIXTSP.PKIStatusInfo",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "TimeStampResp",
+  "target": "TimeStampToken",
+  "field": "timeStampToken",
+  "optional": true
+ },
+ {
+  "source": "PKIXTSP.PKIStatusInfo",
+  "target": "PKIXTSP.PKIStatus",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "PKIXTSP.PKIStatusInfo",
+  "target": "PKIFreeText",
+  "field": "statusString",
+  "optional": true
+ },
+ {
+  "source": "PKIXTSP.PKIStatusInfo",
+  "target": "PKIFailureInfo",
+  "field": "failInfo",
+  "optional": true
+ },
+ {
+  "source": "OtherSigningCertificate",
+  "target": "OtherCertID",
+  "field": "certs",
+  "optional": false
+ },
+ {
+  "source": "OtherSigningCertificate",
+  "target": "PolicyInformation",
+  "field": "policies",
+  "optional": true
+ },
+ {
+  "source": "OtherCertID",
+  "target": "OtherHash",
+  "field": "otherCertHash",
+  "optional": false
+ },
+ {
+  "source": "OtherCertID",
+  "target": "ExtendedSecurityServices-2009.IssuerSerial",
+  "field": "issuerSerial",
+  "optional": true
+ },
+ {
+  "source": "OtherHash",
+  "target": "OtherHashValue",
+  "field": "sha1Hash",
+  "optional": false
+ },
+ {
+  "source": "OtherHash",
+  "target": "OtherHashAlgAndValue",
+  "field": "otherHash",
+  "optional": false
+ },
+ {
+  "source": "SignaturePolicy",
+  "target": "SignaturePolicyId",
+  "field": "signaturePolicyId",
+  "optional": false
+ },
+ {
+  "source": "SignaturePolicy",
+  "target": "SignaturePolicyImplied",
+  "field": "signaturePolicyImplied",
+  "optional": false
+ },
+ {
+  "source": "SignaturePolicyId",
+  "target": "SigPolicyId",
+  "field": "sigPolicyId",
+  "optional": false
+ },
+ {
+  "source": "SignaturePolicyId",
+  "target": "SigPolicyHash",
+  "field": "sigPolicyHash",
+  "optional": false
+ },
+ {
+  "source": "SignaturePolicyId",
+  "target": "SigPolicyQualifierInfo",
+  "field": "sigPolicyQualifiers",
+  "optional": true
+ },
+ {
+  "source": "SigPolicyHash",
+  "target": "OtherHashAlgAndValue",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "OtherHashAlgAndValue",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "OtherHashAlgAndValue",
+  "target": "OtherHashValue",
+  "field": "hashValue",
+  "optional": false
+ },
+ {
+  "source": "SPUserNotice",
+  "target": "ETS-ElectronicSignatureFormats-ExplicitSyntax97.NoticeReference",
+  "field": "noticeRef",
+  "optional": true
+ },
+ {
+  "source": "SPUserNotice",
+  "target": "ETS-ElectronicSignatureFormats-ExplicitSyntax97.DisplayText",
+  "field": "explicitText",
+  "optional": true
+ },
+ {
+  "source": "ETS-ElectronicSignatureFormats-ExplicitSyntax97.NoticeReference",
+  "target": "ETS-ElectronicSignatureFormats-ExplicitSyntax97.DisplayText",
+  "field": "organization",
+  "optional": false
+ },
+ {
+  "source": "CommitmentTypeIndication",
+  "target": "CommitmentTypeIdentifier",
+  "field": "commitmentTypeId",
+  "optional": false
+ },
+ {
+  "source": "CommitmentTypeIndication",
+  "target": "CommitmentTypeQualifier",
+  "field": "commitmentTypeQualifier",
+  "optional": true
+ },
+ {
+  "source": "SignerLocation",
+  "target": "DirectoryString",
+  "field": "countryName",
+  "optional": true
+ },
+ {
+  "source": "SignerLocation",
+  "target": "DirectoryString",
+  "field": "localityName",
+  "optional": true
+ },
+ {
+  "source": "SignerLocation",
+  "target": "PostalAddress",
+  "field": "postalAdddress",
+  "optional": true
+ },
+ {
+  "source": "PostalAddress",
+  "target": "DirectoryString",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "SignerAttribute",
+  "target": "ClaimedAttributes",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "SignerAttribute",
+  "target": "CertifiedAttributes",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ClaimedAttributes",
+  "target": "CryptographicMessageSyntax-2009.Attribute",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CertifiedAttributes",
+  "target": "AttributeCertificate",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ContentTimestamp",
+  "target": "TimeStampToken",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "SignatureTimeStampToken",
+  "target": "TimeStampToken",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "CompleteCertificateRefs",
+  "target": "OtherCertID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CompleteRevocationRefs",
+  "target": "CrlOcspRef",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CrlOcspRef",
+  "target": "CRLListID",
+  "field": "crlids",
+  "optional": true
+ },
+ {
+  "source": "CrlOcspRef",
+  "target": "OcspListID",
+  "field": "ocspids",
+  "optional": true
+ },
+ {
+  "source": "CrlOcspRef",
+  "target": "OtherRevRefs",
+  "field": "otherRev",
+  "optional": true
+ },
+ {
+  "source": "CRLListID",
+  "target": "CrlValidatedID",
+  "field": "crls",
+  "optional": false
+ },
+ {
+  "source": "CrlValidatedID",
+  "target": "OtherHash",
+  "field": "crlHash",
+  "optional": false
+ },
+ {
+  "source": "CrlValidatedID",
+  "target": "CrlIdentifier",
+  "field": "crlIdentifier",
+  "optional": true
+ },
+ {
+  "source": "CrlIdentifier",
+  "target": "Name",
+  "field": "crlissuer",
+  "optional": false
+ },
+ {
+  "source": "OcspListID",
+  "target": "OcspResponsesID",
+  "field": "ocspResponses",
+  "optional": false
+ },
+ {
+  "source": "OcspResponsesID",
+  "target": "OcspIdentifier",
+  "field": "ocspIdentifier",
+  "optional": false
+ },
+ {
+  "source": "OcspResponsesID",
+  "target": "OtherHash",
+  "field": "ocspRepHash",
+  "optional": true
+ },
+ {
+  "source": "OcspIdentifier",
+  "target": "ResponderID",
+  "field": "ocspResponderID",
+  "optional": false
+ },
+ {
+  "source": "CertificateValues",
+  "target": "Certificate",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "RevocationValues",
+  "target": "CertificateList",
+  "field": "crlVals",
+  "optional": true
+ },
+ {
+  "source": "RevocationValues",
+  "target": "BasicOCSPResponse",
+  "field": "ocspVals",
+  "optional": true
+ },
+ {
+  "source": "RevocationValues",
+  "target": "OtherRevVals",
+  "field": "otherRevVals",
+  "optional": true
+ },
+ {
+  "source": "ESCTimeStampToken",
+  "target": "TimeStampToken",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "TimestampedCertsCRLs",
+  "target": "TimeStampToken",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ArchiveTimeStampToken",
+  "target": "TimeStampToken",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "AttributeCertificateRefs",
+  "target": "OtherCertID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "AttributeRevocationRefs",
+  "target": "CrlOcspRef",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "TrustAnchorInfoVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "PKIX1Explicit-2009.SubjectPublicKeyInfo",
+  "field": "pubKey",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "KeyIdentifier",
+  "field": "keyId",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "TrustAnchorTitle",
+  "field": "taTitle",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "CertPathControls",
+  "field": "certPath",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorInfo",
+  "target": "Extensions",
+  "field": "exts",
+  "optional": true
+ },
+ {
+  "source": "CertPathControls",
+  "target": "Name",
+  "field": "taName",
+  "optional": false
+ },
+ {
+  "source": "CertPathControls",
+  "target": "Certificate",
+  "field": "certificate",
+  "optional": true
+ },
+ {
+  "source": "CertPathControls",
+  "target": "CertificatePolicies",
+  "field": "policySet",
+  "optional": true
+ },
+ {
+  "source": "CertPathControls",
+  "target": "CertPolicyFlags",
+  "field": "policyFlags",
+  "optional": true
+ },
+ {
+  "source": "CertPathControls",
+  "target": "NameConstraints",
+  "field": "nameConstr",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorList",
+  "target": "TrustAnchorChoice",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChoice",
+  "target": "Certificate",
+  "field": "certificate",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChoice",
+  "target": "TBSCertificate",
+  "field": "tbsCert",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChoice",
+  "target": "TrustAnchorInfo",
+  "field": "taInfo",
+  "optional": false
+ },
+ {
+  "source": "TAMPStatusQuery",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPStatusQuery",
+  "target": "TerseOrVerbose",
+  "field": "terse",
+  "optional": true
+ },
+ {
+  "source": "TAMPStatusQuery",
+  "target": "TAMPMsgRef",
+  "field": "query",
+  "optional": false
+ },
+ {
+  "source": "TAMPMsgRef",
+  "target": "TargetIdentifier",
+  "field": "target",
+  "optional": false
+ },
+ {
+  "source": "TAMPMsgRef",
+  "target": "SeqNumber",
+  "field": "seqNum",
+  "optional": false
+ },
+ {
+  "source": "TargetIdentifier",
+  "target": "HardwareModuleIdentifierList",
+  "field": "hwModules",
+  "optional": false
+ },
+ {
+  "source": "TargetIdentifier",
+  "target": "CommunityIdentifierList",
+  "field": "communities",
+  "optional": false
+ },
+ {
+  "source": "HardwareModuleIdentifierList",
+  "target": "HardwareModules",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "HardwareModules",
+  "target": "HardwareSerialEntry",
+  "field": "hwSerialEntries",
+  "optional": false
+ },
+ {
+  "source": "CommunityIdentifierList",
+  "target": "Community",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TAMPStatusResponse",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPStatusResponse",
+  "target": "TAMPMsgRef",
+  "field": "query",
+  "optional": false
+ },
+ {
+  "source": "TAMPStatusResponse",
+  "target": "StatusResponse",
+  "field": "response",
+  "optional": false
+ },
+ {
+  "source": "StatusResponse",
+  "target": "TerseStatusResponse",
+  "field": "terseResponse",
+  "optional": false
+ },
+ {
+  "source": "StatusResponse",
+  "target": "VerboseStatusResponse",
+  "field": "verboseResponse",
+  "optional": false
+ },
+ {
+  "source": "TerseStatusResponse",
+  "target": "KeyIdentifiers",
+  "field": "taKeyIds",
+  "optional": false
+ },
+ {
+  "source": "TerseStatusResponse",
+  "target": "CommunityIdentifierList",
+  "field": "communities",
+  "optional": true
+ },
+ {
+  "source": "KeyIdentifiers",
+  "target": "KeyIdentifier",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "VerboseStatusResponse",
+  "target": "TrustAnchorChoiceList",
+  "field": "taInfo",
+  "optional": false
+ },
+ {
+  "source": "VerboseStatusResponse",
+  "target": "AlgorithmIdentifier",
+  "field": "continPubKeyDecryptAlg",
+  "optional": true
+ },
+ {
+  "source": "VerboseStatusResponse",
+  "target": "CommunityIdentifierList",
+  "field": "communities",
+  "optional": true
+ },
+ {
+  "source": "VerboseStatusResponse",
+  "target": "TAMPSequenceNumbers",
+  "field": "tampSeqNumbers",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorChoiceList",
+  "target": "TrustAnchorChoice",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TAMPSequenceNumber",
+  "target": "KeyIdentifier",
+  "field": "keyId",
+  "optional": false
+ },
+ {
+  "source": "TAMPSequenceNumber",
+  "target": "SeqNumber",
+  "field": "seqNumber",
+  "optional": false
+ },
+ {
+  "source": "TAMPSequenceNumbers",
+  "target": "TAMPSequenceNumber",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "TAMPUpdate",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPUpdate",
+  "target": "TerseOrVerbose",
+  "field": "terse",
+  "optional": true
+ },
+ {
+  "source": "TAMPUpdate",
+  "target": "TAMPMsgRef",
+  "field": "msgRef",
+  "optional": false
+ },
+ {
+  "source": "TAMPUpdate",
+  "target": "TrustAnchorUpdate",
+  "field": "updates",
+  "optional": false
+ },
+ {
+  "source": "TAMPUpdate",
+  "target": "TAMPSequenceNumbers",
+  "field": "tampSeqNumbers",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorUpdate",
+  "target": "TrustAnchorChoice",
+  "field": "add",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorUpdate",
+  "target": "PKIX1Explicit-2009.SubjectPublicKeyInfo",
+  "field": "remove",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorUpdate",
+  "target": "TrustAnchorChangeInfoChoice",
+  "field": "change",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChangeInfoChoice",
+  "target": "TBSCertificateChangeInfo",
+  "field": "tbsCertChange",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChangeInfoChoice",
+  "target": "TrustAnchorChangeInfo",
+  "field": "taChange",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "CertificateSerialNumber",
+  "field": "serialNumber",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "AlgorithmIdentifier",
+  "field": "signature",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "Name",
+  "field": "issuer",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "Validity",
+  "field": "validity",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "Name",
+  "field": "subject",
+  "optional": true
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "PKIX1Explicit-2009.SubjectPublicKeyInfo",
+  "field": "subjectPublicKeyInfo",
+  "optional": false
+ },
+ {
+  "source": "TBSCertificateChangeInfo",
+  "target": "Extensions",
+  "field": "exts",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorChangeInfo",
+  "target": "PKIX1Explicit-2009.SubjectPublicKeyInfo",
+  "field": "pubKey",
+  "optional": false
+ },
+ {
+  "source": "TrustAnchorChangeInfo",
+  "target": "KeyIdentifier",
+  "field": "keyId",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorChangeInfo",
+  "target": "TrustAnchorTitle",
+  "field": "taTitle",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorChangeInfo",
+  "target": "CertPathControls",
+  "field": "certPath",
+  "optional": true
+ },
+ {
+  "source": "TrustAnchorChangeInfo",
+  "target": "Extensions",
+  "field": "exts",
+  "optional": true
+ },
+ {
+  "source": "TAMPUpdateConfirm",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPUpdateConfirm",
+  "target": "TAMPMsgRef",
+  "field": "update",
+  "optional": false
+ },
+ {
+  "source": "TAMPUpdateConfirm",
+  "target": "UpdateConfirm",
+  "field": "confirm",
+  "optional": false
+ },
+ {
+  "source": "UpdateConfirm",
+  "target": "TerseUpdateConfirm",
+  "field": "terseConfirm",
+  "optional": false
+ },
+ {
+  "source": "UpdateConfirm",
+  "target": "VerboseUpdateConfirm",
+  "field": "verboseConfirm",
+  "optional": false
+ },
+ {
+  "source": "TerseUpdateConfirm",
+  "target": "StatusCodeList",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "StatusCodeList",
+  "target": "StatusCode",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "VerboseUpdateConfirm",
+  "target": "StatusCodeList",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "VerboseUpdateConfirm",
+  "target": "TrustAnchorChoiceList",
+  "field": "taInfo",
+  "optional": false
+ },
+ {
+  "source": "VerboseUpdateConfirm",
+  "target": "TAMPSequenceNumbers",
+  "field": "tampSeqNumbers",
+  "optional": true
+ },
+ {
+  "source": "TAMPApexUpdate",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPApexUpdate",
+  "target": "TerseOrVerbose",
+  "field": "terse",
+  "optional": true
+ },
+ {
+  "source": "TAMPApexUpdate",
+  "target": "TAMPMsgRef",
+  "field": "msgRef",
+  "optional": false
+ },
+ {
+  "source": "TAMPApexUpdate",
+  "target": "SeqNumber",
+  "field": "seqNumber",
+  "optional": true
+ },
+ {
+  "source": "TAMPApexUpdate",
+  "target": "TrustAnchorChoice",
+  "field": "apexTA",
+  "optional": false
+ },
+ {
+  "source": "TAMPApexUpdateConfirm",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPApexUpdateConfirm",
+  "target": "TAMPMsgRef",
+  "field": "apexReplace",
+  "optional": false
+ },
+ {
+  "source": "TAMPApexUpdateConfirm",
+  "target": "ApexUpdateConfirm",
+  "field": "apexConfirm",
+  "optional": false
+ },
+ {
+  "source": "ApexUpdateConfirm",
+  "target": "TerseApexUpdateConfirm",
+  "field": "terseApexConfirm",
+  "optional": false
+ },
+ {
+  "source": "ApexUpdateConfirm",
+  "target": "VerboseApexUpdateConfirm",
+  "field": "verboseApexConfirm",
+  "optional": false
+ },
+ {
+  "source": "TerseApexUpdateConfirm",
+  "target": "StatusCode",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "VerboseApexUpdateConfirm",
+  "target": "StatusCode",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "VerboseApexUpdateConfirm",
+  "target": "TrustAnchorChoiceList",
+  "field": "taInfo",
+  "optional": false
+ },
+ {
+  "source": "VerboseApexUpdateConfirm",
+  "target": "CommunityIdentifierList",
+  "field": "communities",
+  "optional": true
+ },
+ {
+  "source": "VerboseApexUpdateConfirm",
+  "target": "TAMPSequenceNumbers",
+  "field": "tampSeqNumbers",
+  "optional": true
+ },
+ {
+  "source": "TAMPCommunityUpdate",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPCommunityUpdate",
+  "target": "TerseOrVerbose",
+  "field": "terse",
+  "optional": true
+ },
+ {
+  "source": "TAMPCommunityUpdate",
+  "target": "TAMPMsgRef",
+  "field": "msgRef",
+  "optional": false
+ },
+ {
+  "source": "TAMPCommunityUpdate",
+  "target": "CommunityUpdates",
+  "field": "updates",
+  "optional": false
+ },
+ {
+  "source": "CommunityUpdates",
+  "target": "CommunityIdentifierList",
+  "field": "remove",
+  "optional": true
+ },
+ {
+  "source": "CommunityUpdates",
+  "target": "CommunityIdentifierList",
+  "field": "add",
+  "optional": true
+ },
+ {
+  "source": "TAMPCommunityUpdateConfirm",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPCommunityUpdateConfirm",
+  "target": "TAMPMsgRef",
+  "field": "update",
+  "optional": false
+ },
+ {
+  "source": "TAMPCommunityUpdateConfirm",
+  "target": "CommunityConfirm",
+  "field": "commConfirm",
+  "optional": false
+ },
+ {
+  "source": "CommunityConfirm",
+  "target": "TerseCommunityConfirm",
+  "field": "terseCommConfirm",
+  "optional": false
+ },
+ {
+  "source": "CommunityConfirm",
+  "target": "VerboseCommunityConfirm",
+  "field": "verboseCommConfirm",
+  "optional": false
+ },
+ {
+  "source": "TerseCommunityConfirm",
+  "target": "StatusCode",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "VerboseCommunityConfirm",
+  "target": "StatusCode",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "VerboseCommunityConfirm",
+  "target": "CommunityIdentifierList",
+  "field": "communities",
+  "optional": true
+ },
+ {
+  "source": "SequenceNumberAdjust",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "SequenceNumberAdjust",
+  "target": "TAMPMsgRef",
+  "field": "msgRef",
+  "optional": false
+ },
+ {
+  "source": "SequenceNumberAdjustConfirm",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "SequenceNumberAdjustConfirm",
+  "target": "TAMPMsgRef",
+  "field": "adjust",
+  "optional": false
+ },
+ {
+  "source": "SequenceNumberAdjustConfirm",
+  "target": "StatusCode",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "TAMPError",
+  "target": "TAMPVersion",
+  "field": "version",
+  "optional": true
+ },
+ {
+  "source": "TAMPError",
+  "target": "StatusCode",
+  "field": "status",
+  "optional": false
+ },
+ {
+  "source": "TAMPError",
+  "target": "TAMPMsgRef",
+  "field": "msgRef",
+  "optional": true
+ },
+ {
+  "source": "ApexContingencyKey",
+  "target": "AlgorithmIdentifier",
+  "field": "wrapAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "CMSContentConstraints",
+  "target": "ContentTypeConstraint",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "ContentTypeConstraint",
+  "target": "ContentTypeGeneration",
+  "field": "canSource",
+  "optional": true
+ },
+ {
+  "source": "ContentTypeConstraint",
+  "target": "AttrConstraintList",
+  "field": "attrConstraints",
+  "optional": true
+ },
+ {
+  "source": "AttrConstraintList",
+  "target": "Constraint",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PKIData",
+  "target": "TaggedAttribute",
+  "field": "controlSequence",
+  "optional": false
+ },
+ {
+  "source": "PKIData",
+  "target": "TaggedRequest",
+  "field": "reqSequence",
+  "optional": false
+ },
+ {
+  "source": "PKIData",
+  "target": "TaggedContentInfo",
+  "field": "cmsSequence",
+  "optional": false
+ },
+ {
+  "source": "PKIData",
+  "target": "OtherMsg",
+  "field": "otherMsgSequence",
+  "optional": false
+ },
+ {
+  "source": "TaggedAttribute",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "TaggedRequest",
+  "target": "TaggedCertificationRequest",
+  "field": "tcr",
+  "optional": false
+ },
+ {
+  "source": "TaggedRequest",
+  "target": "CertReqMsg",
+  "field": "crm",
+  "optional": false
+ },
+ {
+  "source": "TaggedRequest",
+  "target": "BodyPartID",
+  "field": "orm",
+  "optional": false
+ },
+ {
+  "source": "TaggedCertificationRequest",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "TaggedCertificationRequest",
+  "target": "EnrollmentMessageSyntax-2011-v08.CertificationRequest",
+  "field": "certificationRequest",
+  "optional": false
+ },
+ {
+  "source": "EnrollmentMessageSyntax-2011-v08.CertificationRequest",
+  "target": "Name",
+  "field": "certificationRequestInfo",
+  "optional": false
+ },
+ {
+  "source": "EnrollmentMessageSyntax-2011-v08.CertificationRequest",
+  "target": "AlgorithmIdentifier",
+  "field": "certificationRequestInfo",
+  "optional": false
+ },
+ {
+  "source": "EnrollmentMessageSyntax-2011-v08.CertificationRequest",
+  "target": "AttributeSet",
+  "field": "certificationRequestInfo",
+  "optional": false
+ },
+ {
+  "source": "EnrollmentMessageSyntax-2011-v08.CertificationRequest",
+  "target": "AlgorithmIdentifier",
+  "field": "signatureAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "TaggedContentInfo",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "TaggedContentInfo",
+  "target": "ContentInfo",
+  "field": "contentInfo",
+  "optional": false
+ },
+ {
+  "source": "OtherMsg",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "ResponseBody",
+  "target": "PKIResponse",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "PKIResponse",
+  "target": "TaggedAttribute",
+  "field": "controlSequence",
+  "optional": false
+ },
+ {
+  "source": "PKIResponse",
+  "target": "TaggedContentInfo",
+  "field": "cmsSequence",
+  "optional": false
+ },
+ {
+  "source": "PKIResponse",
+  "target": "OtherMsg",
+  "field": "otherMsgSequence",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfo",
+  "target": "CMCStatus",
+  "field": "cMCStatus",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfo",
+  "target": "BodyPartID",
+  "field": "bodyList",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfo",
+  "target": "CMCFailInfo",
+  "field": "otherInfo",
+  "optional": true
+ },
+ {
+  "source": "CMCStatusInfo",
+  "target": "PendInfo",
+  "field": "otherInfo",
+  "optional": true
+ },
+ {
+  "source": "AddExtensions",
+  "target": "BodyPartID",
+  "field": "pkiDataReference",
+  "optional": false
+ },
+ {
+  "source": "AddExtensions",
+  "target": "BodyPartID",
+  "field": "certReferences",
+  "optional": false
+ },
+ {
+  "source": "AddExtensions",
+  "target": "Extension",
+  "field": "extensions",
+  "optional": false
+ },
+ {
+  "source": "EncryptedPOP",
+  "target": "TaggedRequest",
+  "field": "request",
+  "optional": false
+ },
+ {
+  "source": "EncryptedPOP",
+  "target": "ContentInfo",
+  "field": "cms",
+  "optional": false
+ },
+ {
+  "source": "EncryptedPOP",
+  "target": "AlgorithmIdentifier",
+  "field": "thePOPAlgID",
+  "optional": false
+ },
+ {
+  "source": "EncryptedPOP",
+  "target": "AlgorithmIdentifier",
+  "field": "witnessAlgID",
+  "optional": false
+ },
+ {
+  "source": "DecryptedPOP",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "DecryptedPOP",
+  "target": "AlgorithmIdentifier",
+  "field": "thePOPAlgID",
+  "optional": false
+ },
+ {
+  "source": "LraPopWitness",
+  "target": "BodyPartID",
+  "field": "pkiDataBodyid",
+  "optional": false
+ },
+ {
+  "source": "LraPopWitness",
+  "target": "BodyPartID",
+  "field": "bodyIds",
+  "optional": false
+ },
+ {
+  "source": "GetCert",
+  "target": "GeneralName",
+  "field": "issuerName",
+  "optional": false
+ },
+ {
+  "source": "GetCRL",
+  "target": "Name",
+  "field": "issuerName",
+  "optional": false
+ },
+ {
+  "source": "GetCRL",
+  "target": "GeneralName",
+  "field": "cRLName",
+  "optional": true
+ },
+ {
+  "source": "GetCRL",
+  "target": "ReasonFlags",
+  "field": "reasons",
+  "optional": true
+ },
+ {
+  "source": "RevokeRequest",
+  "target": "Name",
+  "field": "issuerName",
+  "optional": false
+ },
+ {
+  "source": "RevokeRequest",
+  "target": "CRLReason",
+  "field": "reason",
+  "optional": false
+ },
+ {
+  "source": "CMCCertId",
+  "target": "IssuerAndSerialNumber",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "ExtensionReq",
+  "target": "Extension",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CMCUnsignedData",
+  "target": "BodyPartPath",
+  "field": "bodyPartPath",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfoV2",
+  "target": "CMCStatus",
+  "field": "cMCStatus",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfoV2",
+  "target": "BodyPartReference",
+  "field": "bodyList",
+  "optional": false
+ },
+ {
+  "source": "CMCStatusInfoV2",
+  "target": "CMCFailInfo",
+  "field": "otherInfo",
+  "optional": true
+ },
+ {
+  "source": "CMCStatusInfoV2",
+  "target": "PendInfo",
+  "field": "otherInfo",
+  "optional": true
+ },
+ {
+  "source": "BodyPartReference",
+  "target": "BodyPartID",
+  "field": "bodyPartID",
+  "optional": false
+ },
+ {
+  "source": "BodyPartReference",
+  "target": "BodyPartPath",
+  "field": "bodyPartPath",
+  "optional": false
+ },
+ {
+  "source": "BodyPartPath",
+  "target": "BodyPartID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "PublishTrustAnchors",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "AuthPublish",
+  "target": "BodyPartID",
+  "field": "(alias)",
+  "optional": false
+ },
+ {
+  "source": "BodyPartList",
+  "target": "BodyPartID",
+  "field": "(element)",
+  "optional": false
+ },
+ {
+  "source": "CMCPublicationInfo",
+  "target": "AlgorithmIdentifier",
+  "field": "hashAlg",
+  "optional": false
+ },
+ {
+  "source": "CMCPublicationInfo",
+  "target": "PKIPublicationInfo",
+  "field": "pubInfo",
+  "optional": false
+ },
+ {
+  "source": "ModCertTemplate",
+  "target": "BodyPartPath",
+  "field": "pkiDataReference",
+  "optional": false
+ },
+ {
+  "source": "ModCertTemplate",
+  "target": "BodyPartList",
+  "field": "certReferences",
+  "optional": false
+ },
+ {
+  "source": "ModCertTemplate",
+  "target": "CertTemplate",
+  "field": "certTemplate",
+  "optional": false
+ },
+ {
+  "source": "ControlsProcessed",
+  "target": "BodyPartReference",
+  "field": "bodyList",
+  "optional": false
+ },
+ {
+  "source": "IdentityProofV2",
+  "target": "AlgorithmIdentifier",
+  "field": "proofAlgID",
+  "optional": false
+ },
+ {
+  "source": "IdentityProofV2",
+  "target": "AlgorithmIdentifier",
+  "field": "macAlgId",
+  "optional": false
+ },
+ {
+  "source": "PopLinkWitnessV2",
+  "target": "AlgorithmIdentifier",
+  "field": "keyGenAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "PopLinkWitnessV2",
+  "target": "AlgorithmIdentifier",
+  "field": "macAlgorithm",
+  "optional": false
+ },
+ {
+  "source": "ChangeSubjectName",
+  "target": "Name",
+  "field": "subject",
+  "optional": true
+ },
+ {
+  "source": "ChangeSubjectName",
+  "target": "GeneralNames",
+  "field": "subjectAlt",
+  "optional": true
  },
  {
   "source": "ContentInfo",

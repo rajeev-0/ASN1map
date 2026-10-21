@@ -104,7 +104,11 @@ def main():
     mods = {}
     for ent in manifest:
         p = ROOT / "asn1" / ent["file"]
-        mname, m = asn1parse.parse_module(p.read_text())
+        try:
+            mname, m = asn1parse.parse_module(p.read_text())
+        except Exception as ex:
+            print(f"warning: cannot parse {ent['file']}: {ex!r}; skipped", file=sys.stderr)
+            continue
         if mname in mods:
             print(f"warning: module {mname} defined twice; keeping {ent['file']}", file=sys.stderr)
         mods[mname] = (m, ent, source_spans(p.read_text()))

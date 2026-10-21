@@ -6,7 +6,7 @@ d = Path(__file__).resolve().parent.parent / "site" / "data"
 nodes = {n["id"]: n for n in json.loads((d / "nodes.json").read_text())}
 edges = json.loads((d / "edges.json").read_text())
 ok = True
-for a, b in [("ContentInfo", "SignedData"), ("ContentInfo", "ContentType"), ("SignedData", "SignerInfos"), ("SignerInfos", "SignerInfo"),
+for a, b in [("ContentInfo", "SignedData"), ("ContentInfo", "ContentType"), ("CsrAttrs", "AttrOrOID"), ("SignedData", "SignerInfos"), ("SignerInfos", "SignerInfo"),
              ("SignerInfo", "SignerIdentifier"), ("Certificate", "TBSCertificate"), ("PKIMessage", "PKIBody")]:
     if not any(e["source"] == a and e["target"] == b for e in edges):
         print("MISSING edge", a, "->", b); ok = False

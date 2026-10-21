@@ -1,0 +1,39 @@
+ ACE-08
+       {iso(1) member-body(2) se(752) e-legnamnden(201)
+        id-mod(0) id-mod-auth-context-08(2)}
+
+ DEFINITIONS EXPLICIT TAGS ::=
+ BEGIN
+ EXPORTS ALL;
+ IMPORTS
+
+ Extensions{}, EXTENSION
+ FROM PKIX-CommonTypes-2009 -- From [RFC5912]
+     {iso(1) identified-organization(3) dod(6) internet(1) security(5)
+     mechanisms(5) pkix(7) id-mod(0) id-mod-pkixCommon-02(57)};
+
+ -- Authentication Context Extension
+
+ ext-AuthenticationContext EXTENSION ::= { SYNTAX
+        AuthenticationContexts IDENTIFIED BY
+        id-ce-authContext }
+
+ AuthenticationContexts ::= SEQUENCE SIZE (1..MAX) OF
+                            AuthenticationContext
+
+ AuthenticationContext ::= SEQUENCE {
+     contextType     UTF8String,
+     contextInfo     UTF8String OPTIONAL
+ }
+
+ ElegnamndenCertExtensions EXTENSION ::= {
+     ext-AuthenticationContext, ... }
+
+
+
+ e-legnamnden      OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+                                           se(752) 201 }
+ id-eleg-ce        OBJECT IDENTIFIER ::= { e-legnamnden 5 }
+ id-ce-authContext OBJECT IDENTIFIER ::= { id-eleg-ce 1 }
+
+ END

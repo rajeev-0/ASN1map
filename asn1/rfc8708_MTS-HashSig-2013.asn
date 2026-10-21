@@ -1,0 +1,59 @@
+   MTS-HashSig-2013
+     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
+       id-smime(16) id-mod(0) id-mod-mts-hashsig-2013(64) }
+
+   DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+   EXPORTS ALL;
+
+   IMPORTS
+     PUBLIC-KEY, SIGNATURE-ALGORITHM, SMIME-CAPS
+       FROM AlgorithmInformation-2009  -- RFC 5911 [CMSASN1]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-algorithmInformation-02(58) } ;
+
+   --
+   -- Object Identifiers
+   --
+
+   id-alg-hss-lms-hashsig OBJECT IDENTIFIER ::= { iso(1)
+       member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs9(9)
+       smime(16) alg(3) 17 }
+
+   id-alg-mts-hashsig OBJECT IDENTIFIER ::= id-alg-hss-lms-hashsig
+
+   --
+   -- Signature Algorithm and Public Key
+   --
+
+   sa-HSS-LMS-HashSig SIGNATURE-ALGORITHM ::= {
+       IDENTIFIER id-alg-hss-lms-hashsig
+       PARAMS ARE absent
+       PUBLIC-KEYS { pk-HSS-LMS-HashSig }
+       SMIME-CAPS { IDENTIFIED BY id-alg-hss-lms-hashsig } }
+
+   pk-HSS-LMS-HashSig PUBLIC-KEY ::= {
+       IDENTIFIER id-alg-hss-lms-hashsig
+       KEY HSS-LMS-HashSig-PublicKey
+       PARAMS ARE absent
+       CERT-KEY-USAGE
+           { digitalSignature, nonRepudiation, keyCertSign, cRLSign } }
+
+   HSS-LMS-HashSig-PublicKey ::= OCTET STRING
+
+   --
+   -- Expand the signature algorithm set used by CMS [CMSASN1U]
+   --
+
+   SignatureAlgorithmSet SIGNATURE-ALGORITHM ::=
+       { sa-HSS-LMS-HashSig, ... }
+
+   --
+   -- Expand the S/MIME capabilities set used by CMS [CMSASN1]
+   --
+
+   SMimeCaps SMIME-CAPS ::=
+       { sa-HSS-LMS-HashSig.&smimeCaps, ... }
+
+   END

@@ -1,0 +1,90 @@
+   CMSORIforPSK-2019
+     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-9(9)
+       smime(16) modules(0) id-mod-cms-ori-psk-2019(69) }
+
+   DEFINITIONS EXPLICIT TAGS ::=
+   BEGIN
+
+   -- EXPORTS All
+
+   IMPORTS
+
+   AlgorithmIdentifier{}, KEY-DERIVATION
+     FROM AlgorithmInformation-2009  -- [RFC5912]
+       { iso(1) identified-organization(3) dod(6) internet(1)
+         security(5) mechanisms(5) pkix(7) id-mod(0)
+         id-mod-algorithmInformation-02(58) }
+
+   OTHER-RECIPIENT, OtherRecipientInfo, CMSVersion,
+   KeyTransRecipientInfo, OriginatorIdentifierOrKey,
+   UserKeyingMaterial, RecipientEncryptedKeys, EncryptedKey,
+   KeyDerivationAlgorithmIdentifier, KeyEncryptionAlgorithmIdentifier
+     FROM CryptographicMessageSyntax-2010  -- [RFC6268]
+       { iso(1) member-body(2) us(840) rsadsi(113549)
+         pkcs(1) pkcs-9(9) smime(16) modules(0)
+         id-mod-cms-2009(58) } ;
+   --
+   -- OtherRecipientInfo Types (ori-)
+   --
+
+   SupportedOtherRecipInfo OTHER-RECIPIENT ::= {
+     ori-keyTransPSK |
+     ori-keyAgreePSK,
+     ... }
+
+   --
+   -- Key Transport with Pre-Shared Key
+   --
+
+   ori-keyTransPSK OTHER-RECIPIENT ::= {
+     KeyTransPSKRecipientInfo IDENTIFIED BY id-ori-keyTransPSK }
+
+   id-ori OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
+     rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) 13 }
+
+   id-ori-keyTransPSK OBJECT IDENTIFIER ::= { id-ori 1 }
+
+   KeyTransPSKRecipientInfo ::= SEQUENCE {
+     version CMSVersion,  -- always set to 0
+     pskid PreSharedKeyIdentifier,
+     kdfAlgorithm KeyDerivationAlgorithmIdentifier,
+     keyEncryptionAlgorithm KeyEncryptionAlgorithmIdentifier,
+     ktris KeyTransRecipientInfos,
+     encryptedKey EncryptedKey }
+
+   PreSharedKeyIdentifier ::= OCTET STRING
+
+   KeyTransRecipientInfos ::= SEQUENCE OF KeyTransRecipientInfo
+
+   --
+   -- Key Agreement with Pre-Shared Key
+   --
+
+   ori-keyAgreePSK OTHER-RECIPIENT ::= {
+     KeyAgreePSKRecipientInfo IDENTIFIED BY id-ori-keyAgreePSK }
+
+   id-ori-keyAgreePSK OBJECT IDENTIFIER ::= { id-ori 2 }
+   KeyAgreePSKRecipientInfo ::= SEQUENCE {
+     version CMSVersion,  -- always set to 0
+     pskid PreSharedKeyIdentifier,
+     originator [0] EXPLICIT OriginatorIdentifierOrKey,
+     ukm [1] EXPLICIT UserKeyingMaterial OPTIONAL,
+     kdfAlgorithm KeyDerivationAlgorithmIdentifier,
+     keyEncryptionAlgorithm KeyEncryptionAlgorithmIdentifier,
+     recipientEncryptedKeys RecipientEncryptedKeys }
+
+   --
+   -- Structure to provide 'info' input to the KDF,
+   -- including the Pre-Shared Key
+   --
+
+   CMSORIforPSKOtherInfo ::= SEQUENCE {
+     psk                    OCTET STRING,
+     keyMgmtAlgType         ENUMERATED {
+       keyTrans               (5),
+       keyAgree               (10) },
+     keyEncryptionAlgorithm KeyEncryptionAlgorithmIdentifier,
+     pskLength              INTEGER (1..MAX),
+     kdkLength              INTEGER (1..MAX) }
+
+   END

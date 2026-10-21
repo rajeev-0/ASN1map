@@ -1,0 +1,236 @@
+   KeyPackageReceiptAndErrorModuleV2
+     { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-9(9)
+       smime(16) modules(0) id-mod-keyPkgReceiptAndErrV2(63) }
+
+   DEFINITIONS IMPLICIT TAGS ::=
+
+   BEGIN
+
+   -- EXPORTS ALL
+
+   IMPORTS
+
+   -- FROM New SMIME ASN.1 [RFC6268]
+
+   CONTENT-TYPE
+     FROM CryptographicMessageSyntax-2010
+       { iso(1) member-body(2) us(840) rsadsi(113549)
+         pkcs(1) pkcs-9(9) smime(16) modules(0) id-mod-cms-2009(58) }
+
+   -- From New PKIX ASN.1 [RFC5912]
+
+   ATTRIBUTE, SingleAttribute {}
+     FROM PKIX-CommonTypes-2009
+       { iso(1) identified-organization(3) dod(6) internet(1)
+         security(5) mechanisms(5) pkix(7) id-mod(0)
+         id-mod-pkixCommon-02(57) }
+
+   DistinguishedName
+     FROM PKIX1Explicit-2009
+       { iso(1) identified-organization(3) dod(6) internet(1)
+         security(5) mechanisms(5) pkix(7) id-mod(0)
+         id-mod-pkix1-explicit-02(51)}
+   ;
+
+   ---
+   --- Key Package Version Number (revised from [RFC6031])
+   ---
+
+   KeyPkgVersion ::= INTEGER  { v1(1), v2(2) } (1 .. 65535)
+
+
+
+
+
+
+
+
+
+   --
+   -- SIR Entity Name
+   --
+
+   SIREntityNames ::= SEQUENCE SIZE (1..MAX) OF SIREntityName
+
+   SIREntityNameTypes SIR-ENTITY-NAME ::= {
+       siren-dn,
+       ... -- Expect additional SIR Entity Name types -- }
+
+   SIR-ENTITY-NAME ::= CLASS {
+       &sIRENType OBJECT IDENTIFIER UNIQUE,
+       &SIRENValue
+       } WITH SYNTAX {
+       SYNTAX &SIRENValue IDENTIFIED BY &sIRENType }
+
+   SIREntityName ::= SEQUENCE {
+       sirenType      SIR-ENTITY-NAME.&sIRENType({SIREntityNameTypes}),
+       sirenValue     OCTET STRING (CONTAINING
+                        SIR-ENTITY-NAME.&SIRENValue(
+                          {SIREntityNameTypes}{@sirenType}) ) }
+
+   siren-dn SIR-ENTITY-NAME ::= {
+       SYNTAX DistinguishedName
+       IDENTIFIED BY id-dn }
+
+   id-dn OBJECT IDENTIFIER ::= {
+       joint-iso-ccitt(2) country(16) us(840) organization(1)
+       gov(101) dod(2) infosec(1) sir-name-types(16) 0 }
+
+   --
+   -- Attribute Definitions
+   --
+
+   aa-keyPackageIdentifierAndReceiptRequest ATTRIBUTE ::= {
+       TYPE KeyPkgIdentifierAndReceiptReq
+       IDENTIFIED BY id-aa-KP-keyPkgIdAndReceiptReq }
+   id-aa-KP-keyPkgIdAndReceiptReq OBJECT IDENTIFIER ::= {
+       joint-iso-itu-t(2) country(16) us(840) organization(1)
+       gov(101) dod(2) infosec(1) attributes(5) 65 }
+
+   KeyPkgIdentifierAndReceiptReq ::= SEQUENCE {
+       pkgID       KeyPkgID,
+       receiptReq  KeyPkgReceiptReq OPTIONAL }
+
+   KeyPkgID ::= OCTET STRING
+
+
+
+
+
+
+
+
+   KeyPkgReceiptReq ::= SEQUENCE {
+       encryptReceipt     BOOLEAN DEFAULT FALSE,
+       receiptsFrom   [0] SIREntityNames OPTIONAL,
+       receiptsTo         SIREntityNames }
+
+   --
+   -- Content Type Definitions
+   --
+
+   KeyPackageContentTypes CONTENT-TYPE ::= {
+     ct-key-package-receipt |
+     ct-key-package-error,
+     ... -- Expect additional content types -- }
+
+   -- Key Package Receipt CMS Content Type
+
+   ct-key-package-receipt CONTENT-TYPE ::= {
+       TYPE KeyPackageReceipt
+       IDENTIFIED BY id-ct-KP-keyPackageReceipt }
+
+   id-ct-KP-keyPackageReceipt OBJECT IDENTIFIER ::= {
+       joint-iso-itu-t(2) country(16) us(840) organization(1)
+       gov(101) dod(2) infosec(1) formats(2)
+       key-package-content-types(78) 3 }
+
+   KeyPackageReceipt ::= SEQUENCE {
+       version          KeyPkgVersion DEFAULT v2,
+       receiptOf        KeyPkgIdentifier,
+       receivedBy       SIREntityName }
+
+   KeyPkgIdentifier ::= CHOICE {
+       pkgID            KeyPkgID,
+       attribute        SingleAttribute {{ KeyPkgIdentifiers }} }
+
+   KeyPkgIdentifiers ATTRIBUTE ::= { ... }
+
+   -- Key Package Receipt CMS Content Type
+
+   ct-key-package-error CONTENT-TYPE ::= {
+       TYPE KeyPackageError IDENTIFIED BY id-ct-KP-keyPackageError }
+
+   id-ct-KP-keyPackageError OBJECT IDENTIFIER ::= {
+       joint-iso-itu-t(2) country(16) us(840) organization(1)
+       gov(101) dod(2) infosec(1) formats(2)
+       key-package-content-types(78) 6 }
+
+
+
+
+
+
+
+
+
+   KeyPackageError ::= SEQUENCE {
+       version        KeyPkgVersion DEFAULT v2,
+       errorOf    [0] KeyPkgIdentifier OPTIONAL,
+       errorBy        SIREntityName,
+       errorCode      ErrorCodeChoice }
+
+   ErrorCodeChoice ::= CHOICE {
+       enum           EnumeratedErrorCode,
+       oid            OBJECT IDENTIFIER }
+
+   EnumeratedErrorCode ::= ENUMERATED {
+       decodeFailure                     (1),
+       badContentInfo                    (2),
+       badSignedData                     (3),
+       badEncapContent                   (4),
+       badCertificate                    (5),
+       badSignerInfo                     (6),
+       badSignedAttrs                    (7),
+       badUnsignedAttrs                  (8),
+       missingContent                    (9),
+       noTrustAnchor                    (10),
+       notAuthorized                    (11),
+       badDigestAlgorithm               (12),
+       badSignatureAlgorithm            (13),
+       unsupportedKeySize               (14),
+       unsupportedParameters            (15),
+       signatureFailure                 (16),
+       insufficientMemory               (17),
+       incorrectTarget                  (23),
+       missingSignature                 (29),
+       resourcesBusy                    (30),
+       versionNumberMismatch            (31),
+       revokedCertificate               (33),
+
+   --  Error codes with values <= 33 are aligned with [RFC5934]
+
+       ambiguousDecrypt                 (60),
+       noDecryptKey                     (61),
+       badEncryptedData                 (62),
+       badEnvelopedData                 (63),
+       badAuthenticatedData             (64),
+       badAuthEnvelopedData             (65),
+       badKeyAgreeRecipientInfo         (66),
+       badKEKRecipientInfo              (67),
+       badEncryptContent                (68),
+       badEncryptAlgorithm              (69),
+       missingCiphertext                (70),
+       decryptFailure                   (71),
+
+
+
+
+
+
+       badMACAlgorithm                  (72),
+       badAuthAttrs                     (73),
+       badUnauthAttrs                   (74),
+       invalidMAC                       (75),
+       mismatchedDigestAlg              (76),
+       missingCertificate               (77),
+       tooManySigners                   (78),
+       missingSignedAttributes          (79),
+       derEncodingNotUsed               (80),
+       missingContentHints              (81),
+       invalidAttributeLocation         (82),
+       badMessageDigest                 (83),
+       badKeyPackage                    (84),
+       badAttributes                    (85),
+       attributeComparisonFailure       (86),
+       unsupportedSymmetricKeyPackage   (87),
+       unsupportedAsymmetricKeyPackage  (88),
+       constraintViolation              (89),
+       ambiguousDefaultValue            (90),
+       noMatchingRecipientInfo          (91),
+       unsupportedKeyWrapAlgorithm      (92),
+       badKeyTransRecipientInfo         (93),
+       other                           (127),
+       ... -- Expect additional error codes  -- }
+
+   END

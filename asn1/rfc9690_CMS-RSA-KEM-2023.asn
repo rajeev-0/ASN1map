@@ -1,0 +1,215 @@
+   CMS-RSA-KEM-2023
+      { iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1)
+        pkcs-9(9) smime(16) modules(0) id-mod-cms-rsa-kem-2023(79) }
+
+      DEFINITIONS EXPLICIT TAGS ::= BEGIN
+
+   -- EXPORTS ALL
+
+   IMPORTS
+
+     KEM-ALGORITHM
+       FROM KEMAlgorithmInformation-2023  -- [RFC9629]
+          { iso(1) identified-organization(3) dod(6) internet(1)
+            security(5) mechanisms(5) pkix(7) id-mod(0)
+            id-mod-kemAlgorithmInformation-2023(109) }
+
+     AlgorithmIdentifier{}, PUBLIC-KEY, DIGEST-ALGORITHM,
+     KEY-DERIVATION, KEY-WRAP, SMIME-CAPS
+       FROM AlgorithmInformation-2009  -- [RFC5912]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-algorithmInformation-02(58) }
+
+     kwa-aes128-wrap, kwa-aes192-wrap, kwa-aes256-wrap
+       FROM CMSAesRsaesOaep-2009  -- [RFC5911]
+         { iso(1) member-body(2) us(840) rsadsi(113549)
+           pkcs(1) pkcs-9(9) smime(16) modules(0)
+           id-mod-cms-aes-02(38) }
+
+     kwa-3DESWrap
+       FROM CryptographicMessageSyntaxAlgorithms-2009  -- [RFC5911]
+         { iso(1) member-body(2) us(840) rsadsi(113549)
+           pkcs(1) pkcs-9(9) smime(16) modules(0)
+           id-mod-cmsalg-2001-02(37) }
+
+     id-camellia128-wrap, id-camellia192-wrap, id-camellia256-wrap
+       FROM CamelliaEncryptionAlgorithmInCMS  -- [RFC3657]
+         { iso(1) member-body(2) us(840) rsadsi(113549)
+           pkcs(1) pkcs9(9) smime(16) modules(0)
+           id-mod-cms-camellia(23) }
+
+     mda-sha1, pk-rsa, RSAPublicKey
+       FROM PKIXAlgs-2009  -- [RFC5912]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-pkix1-algorithms2008-02(56) }
+
+     mda-sha224, mda-sha256, mda-sha384, mda-sha512
+       FROM PKIX1-PSS-OAEP-Algorithms-2009  -- [RFC5912]
+         { iso(1) identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) id-mod(0)
+           id-mod-pkix1-rsa-pkalgs-02(54) } ;
+
+
+   -- Useful types and definitions
+
+   OID ::= OBJECT IDENTIFIER  -- alias
+
+   NullParms ::= NULL
+
+   -- ISO/IEC 18033-2 arc
+
+   is18033-2 OID ::= { iso(1) standard(0) is18033(18033) part2(2) }
+
+   -- NIST algorithm arc
+
+   nistAlgorithm OID ::= { joint-iso-itu-t(2) country(16) us(840)
+      organization(1) gov(101) csor(3) nistAlgorithm(4) }
+
+   -- PKCS #1 arc
+
+   pkcs-1 OID ::= { iso(1) member-body(2) us(840) rsadsi(113549)
+      pkcs(1) pkcs-1(1) }
+
+   -- X9.44 arc
+
+   x9-44 OID ::= { iso(1) identified-organization(3) tc68(133)
+      country(16) x9(840) x9Standards(9) x9-44(44) }
+
+   x9-44-components OID ::= { x9-44 components(1) }
+
+   -- RSA-KEM algorithm
+
+   id-rsa-kem OID ::= { iso(1) member-body(2) us(840) rsadsi(113549)
+      pkcs(1) pkcs-9(9) smime(16) alg(3) 14 }
+
+   id-rsa-kem-spki OID ::= id-rsa-kem
+
+   GenericHybridParameters ::= SEQUENCE {
+      kem  KeyEncapsulationMechanism,
+      dem  DataEncapsulationMechanism }
+
+   KeyEncapsulationMechanism ::=
+      AlgorithmIdentifier { KEM-ALGORITHM, {KEMAlgorithms} }
+
+   KEMAlgorithms KEM-ALGORITHM ::= { kema-kem-rsa | kema-rsa-kem, ... }
+
+   kema-rsa-kem KEM-ALGORITHM ::= {
+      IDENTIFIER id-rsa-kem-spki
+      PARAMS TYPE GenericHybridParameters ARE optional
+      PUBLIC-KEYS { pk-rsa | pk-rsa-kem }
+      UKM ARE optional
+      SMIME-CAPS { TYPE GenericHybridParameters
+         IDENTIFIED BY id-rsa-kem-spki } }
+
+   kema-kem-rsa KEM-ALGORITHM ::= {
+      IDENTIFIER id-kem-rsa
+      PARAMS TYPE RsaKemParameters ARE optional
+      PUBLIC-KEYS { pk-rsa | pk-rsa-kem }
+      UKM ARE optional
+      SMIME-CAPS { TYPE GenericHybridParameters
+         IDENTIFIED BY id-rsa-kem-spki } }
+
+   id-kem-rsa OID ::= { is18033-2 key-encapsulation-mechanism(2)
+      rsa(4) }
+
+   RsaKemParameters ::= SEQUENCE {
+      keyDerivationFunction  KeyDerivationFunction,
+      keyLength              KeyLength }
+
+   pk-rsa-kem PUBLIC-KEY ::= {
+     IDENTIFIER id-rsa-kem-spki
+     KEY RSAPublicKey
+     PARAMS TYPE GenericHybridParameters ARE preferredAbsent
+     -- Private key format is not specified here --
+     CERT-KEY-USAGE {keyEncipherment} }
+
+   KeyDerivationFunction ::=
+      AlgorithmIdentifier { KEY-DERIVATION, {KDFAlgorithms} }
+
+   KDFAlgorithms KEY-DERIVATION ::= { kda-kdf2 | kda-kdf3, ... }
+
+   KeyLength ::= INTEGER (1..MAX)
+
+   DataEncapsulationMechanism ::=
+      AlgorithmIdentifier { KEY-WRAP, {DEMAlgorithms} }
+
+   DEMAlgorithms KEY-WRAP ::= {
+      X9-SymmetricKeyWrappingSchemes |
+      Camellia-KeyWrappingSchemes, ... }
+
+   X9-SymmetricKeyWrappingSchemes KEY-WRAP ::= {
+      kwa-aes128-wrap | kwa-aes192-wrap | kwa-aes256-wrap |
+      kwa-3DESWrap, ... }
+
+   X9-SymmetricKeyWrappingScheme ::=
+      AlgorithmIdentifier { KEY-WRAP, {X9-SymmetricKeyWrappingSchemes} }
+
+   Camellia-KeyWrappingSchemes KEY-WRAP ::= {
+      kwa-camellia128-wrap | kwa-camellia192-wrap |
+      kwa-camellia256-wrap, ... }
+
+   Camellia-KeyWrappingScheme ::=
+      AlgorithmIdentifier { KEY-WRAP, {Camellia-KeyWrappingSchemes} }
+
+   kwa-camellia128-wrap KEY-WRAP ::= {
+      IDENTIFIER id-camellia128-wrap
+      PARAMS ARE absent
+      SMIME-CAPS { IDENTIFIED BY id-camellia128-wrap } }
+
+   kwa-camellia192-wrap KEY-WRAP ::= {
+      IDENTIFIER id-camellia192-wrap
+      PARAMS ARE absent
+      SMIME-CAPS { IDENTIFIED BY id-camellia192-wrap } }
+
+   kwa-camellia256-wrap KEY-WRAP ::= {
+      IDENTIFIER id-camellia256-wrap
+      PARAMS ARE absent
+      SMIME-CAPS { IDENTIFIED BY id-camellia256-wrap } }
+
+   -- Key Derivation Functions
+
+   id-kdf-kdf2 OID ::= { x9-44-components kdf2(1) }
+
+   kda-kdf2 KEY-DERIVATION ::= {
+      IDENTIFIER id-kdf-kdf2
+      PARAMS TYPE KDF2-HashFunction ARE required
+      -- No S/MIME caps defined -- }
+
+   KDF2-HashFunction ::=
+      AlgorithmIdentifier { DIGEST-ALGORITHM, {KDF2-HashFunctions} }
+
+   KDF2-HashFunctions DIGEST-ALGORITHM ::= { X9-HashFunctions, ... }
+
+   id-kdf-kdf3 OID ::= { x9-44-components kdf3(2) }
+
+   kda-kdf3 KEY-DERIVATION ::= {
+      IDENTIFIER id-kdf-kdf3
+      PARAMS TYPE KDF3-HashFunction ARE required
+      -- No S/MIME caps defined -- }
+
+   KDF3-HashFunction ::=
+      AlgorithmIdentifier { DIGEST-ALGORITHM, {KDF3-HashFunctions} }
+
+   KDF3-HashFunctions DIGEST-ALGORITHM ::= { X9-HashFunctions, ... }
+
+   -- Hash Functions
+
+   X9-HashFunctions DIGEST-ALGORITHM ::= {
+      mda-sha1 | mda-sha224 | mda-sha256 | mda-sha384 |
+      mda-sha512, ... }
+
+   -- Updates for the SMIME-CAPS Set from RFC 5911
+
+   SMimeCapsSet SMIME-CAPS ::= {
+      kema-kem-rsa.&smimeCaps |
+      kwa-aes128-wrap |
+      kwa-aes192-wrap |
+      kwa-aes256-wrap |
+      kwa-camellia128-wrap.&smimeCaps |
+      kwa-camellia192-wrap.&smimeCaps |
+      kwa-camellia256-wrap.&smimeCaps,
+      ... }
+
+   END

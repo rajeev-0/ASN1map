@@ -1,0 +1,192 @@
+   PKIXAlgsForSHAKE-2019 { iso(1) identified-organization(3) dod(6)
+     internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
+     id-mod-pkix1-shakes-2019(94) }
+
+   DEFINITIONS EXPLICIT TAGS ::=
+
+   BEGIN
+
+   -- EXPORTS ALL;
+
+   IMPORTS
+
+   -- FROM RFC 5912
+
+   PUBLIC-KEY, SIGNATURE-ALGORITHM, DIGEST-ALGORITHM, SMIME-CAPS
+   FROM AlgorithmInformation-2009
+     { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+       mechanisms(5) pkix(7) id-mod(0)
+       id-mod-algorithmInformation-02(58) }
+
+   -- FROM RFC 5912
+
+   RSAPublicKey, rsaEncryption, pk-rsa, pk-ec,
+   CURVE, id-ecPublicKey, ECPoint, ECParameters, ECDSA-Sig-Value
+   FROM PKIXAlgs-2009 { iso(1) identified-organization(3) dod(6)
+        internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
+        id-mod-pkix1-algorithms2008-02(56) }
+   ;
+
+   --
+   -- Message Digest Algorithms (mda-)
+   --
+   DigestAlgorithms DIGEST-ALGORITHM ::= {
+     -- This expands DigestAlgorithms from RFC 5912
+     mda-shake128   |
+     mda-shake256,
+     ...
+   }
+
+   --
+   -- One-Way Hash Functions
+   --
+
+   -- SHAKE128
+   mda-shake128 DIGEST-ALGORITHM ::= {
+     IDENTIFIER id-shake128  -- with output length 32 bytes.
+   }
+   id-shake128 OBJECT IDENTIFIER ::= { joint-iso-itu-t(2) country(16)
+                                       us(840) organization(1) gov(101)
+                                       csor(3) nistAlgorithm(4)
+                                       hashAlgs(2) 11 }
+
+   -- SHAKE256
+   mda-shake256 DIGEST-ALGORITHM ::= {
+     IDENTIFIER id-shake256  -- with output length 64 bytes.
+   }
+   id-shake256 OBJECT IDENTIFIER ::= { joint-iso-itu-t(2) country(16)
+                                       us(840) organization(1) gov(101)
+                                       csor(3) nistAlgorithm(4)
+                                       hashAlgs(2) 12 }
+
+   --
+   -- Public Key (pk-) Algorithms
+   --
+   PublicKeys PUBLIC-KEY ::= {
+     -- This expands PublicKeys from RFC 5912
+     pk-rsaSSA-PSS-SHAKE128 |
+     pk-rsaSSA-PSS-SHAKE256,
+     ...
+   }
+
+   -- The hashAlgorithm is mda-shake128
+   -- The maskGenAlgorithm is id-shake128
+   -- Mask Gen Algorithm is SHAKE128 with output length
+   -- (8*ceil((n-1)/8) - 264) bits, where n is the RSA
+   -- modulus in bits.
+   -- The saltLength is 32.  The trailerField is 1.
+   pk-rsaSSA-PSS-SHAKE128 PUBLIC-KEY ::= {
+     IDENTIFIER id-RSASSA-PSS-SHAKE128
+     KEY RSAPublicKey
+     PARAMS ARE absent
+     -- Private key format not in this module --
+     CERT-KEY-USAGE { nonRepudiation, digitalSignature,
+                      keyCertSign, cRLSign }
+   }
+
+   -- The hashAlgorithm is mda-shake256
+   -- The maskGenAlgorithm is id-shake256
+   -- Mask Gen Algorithm is SHAKE256 with output length
+   -- (8*ceil((n-1)/8) - 520)-bits, where n is the RSA
+   -- modulus in bits.
+   -- The saltLength is 64.  The trailerField is 1.
+   pk-rsaSSA-PSS-SHAKE256 PUBLIC-KEY ::= {
+     IDENTIFIER id-RSASSA-PSS-SHAKE256
+     KEY RSAPublicKey
+     PARAMS ARE absent
+     -- Private key format not in this module --
+     CERT-KEY-USAGE { nonRepudiation, digitalSignature,
+                      keyCertSign, cRLSign }
+   }
+
+   --
+   -- Signature Algorithms (sa-)
+   --
+   SignatureAlgs SIGNATURE-ALGORITHM ::= {
+     -- This expands SignatureAlgorithms from RFC 5912
+     sa-rsassapssWithSHAKE128 |
+     sa-rsassapssWithSHAKE256 |
+     sa-ecdsaWithSHAKE128 |
+     sa-ecdsaWithSHAKE256,
+     ...
+   }
+
+   --
+   -- SMIME Capabilities (sa-)
+   --
+   SMimeCaps SMIME-CAPS ::= {
+     -- The expands SMimeCaps from RFC 5912
+     sa-rsassapssWithSHAKE128.&smimeCaps |
+     sa-rsassapssWithSHAKE256.&smimeCaps |
+     sa-ecdsaWithSHAKE128.&smimeCaps |
+     sa-ecdsaWithSHAKE256.&smimeCaps,
+     ...
+   }
+
+   -- RSASSA-PSS with SHAKE128
+   sa-rsassapssWithSHAKE128 SIGNATURE-ALGORITHM ::= {
+     IDENTIFIER id-RSASSA-PSS-SHAKE128
+     PARAMS ARE absent
+         -- The hashAlgorithm is mda-shake128
+         -- The maskGenAlgorithm is id-shake128
+         -- Mask Gen Algorithm is SHAKE128 with output length
+         -- (8*ceil((n-1)/8) - 264) bits, where n is the RSA
+         -- modulus in bits.
+         -- The saltLength is 32. The trailerField is 1
+     HASHES { mda-shake128 }
+     PUBLIC-KEYS { pk-rsa | pk-rsaSSA-PSS-SHAKE128 }
+     SMIME-CAPS { IDENTIFIED BY id-RSASSA-PSS-SHAKE128 }
+   }
+   id-RSASSA-PSS-SHAKE128  OBJECT IDENTIFIER  ::=  { iso(1)
+           identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) algorithms(6)
+           30 }
+
+   -- RSASSA-PSS with SHAKE256
+   sa-rsassapssWithSHAKE256 SIGNATURE-ALGORITHM ::= {
+     IDENTIFIER id-RSASSA-PSS-SHAKE256
+     PARAMS ARE absent
+         -- The hashAlgorithm is mda-shake256
+         -- The maskGenAlgorithm is id-shake256
+         -- Mask Gen Algorithm is SHAKE256 with output length
+         -- (8*ceil((n-1)/8) - 520)-bits, where n is the
+         -- RSA modulus in bits.
+         -- The saltLength is 64. The trailerField is 1.
+    HASHES { mda-shake256 }
+    PUBLIC-KEYS { pk-rsa | pk-rsaSSA-PSS-SHAKE256 }
+    SMIME-CAPS { IDENTIFIED BY id-RSASSA-PSS-SHAKE256 }
+   }
+   id-RSASSA-PSS-SHAKE256  OBJECT IDENTIFIER  ::=  { iso(1)
+           identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) algorithms(6)
+           31 }
+
+   -- ECDSA with SHAKE128
+   sa-ecdsaWithSHAKE128 SIGNATURE-ALGORITHM ::= {
+     IDENTIFIER id-ecdsa-with-shake128
+     VALUE ECDSA-Sig-Value
+     PARAMS ARE absent
+     HASHES { mda-shake128 }
+     PUBLIC-KEYS { pk-ec }
+     SMIME-CAPS { IDENTIFIED BY id-ecdsa-with-shake128 }
+   }
+   id-ecdsa-with-shake128 OBJECT IDENTIFIER  ::=  { iso(1)
+           identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) algorithms(6)
+           32 }
+
+   -- ECDSA with SHAKE256
+   sa-ecdsaWithSHAKE256 SIGNATURE-ALGORITHM ::= {
+     IDENTIFIER id-ecdsa-with-shake256
+     VALUE ECDSA-Sig-Value
+     PARAMS ARE absent
+     HASHES { mda-shake256 }
+     PUBLIC-KEYS { pk-ec }
+     SMIME-CAPS { IDENTIFIED BY id-ecdsa-with-shake256 }
+   }
+   id-ecdsa-with-shake256 OBJECT IDENTIFIER  ::=  { iso(1)
+           identified-organization(3) dod(6) internet(1)
+           security(5) mechanisms(5) pkix(7) algorithms(6)
+           33 }
+
+   END

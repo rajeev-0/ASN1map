@@ -205,5 +205,293 @@
   "section": "F",
   "start_line": 5439,
   "end_line": 6175
+ },
+ {
+  "file": "rfc8951_PKIXEST-2019.asn",
+  "module": "PKIXEST-2019",
+  "rfc": 8951,
+  "standard": "EST",
+  "section": "A",
+  "start_line": 547,
+  "end_line": 595
+ },
+ {
+  "file": "rfc3820_PKIXproxy88.asn",
+  "module": "PKIXproxy88",
+  "rfc": 3820,
+  "standard": "X.509",
+  "section": "9",
+  "start_line": 1913,
+  "end_line": 1958
+ },
+ {
+  "file": "rfc6268_BinarySigningTimeModule-2010.asn",
+  "module": "BinarySigningTimeModule-2010",
+  "rfc": 6268,
+  "standard": "CMS",
+  "section": "4",
+  "start_line": 517,
+  "end_line": 577
+ },
+ {
+  "file": "rfc6268_ContentCollectionModule-2010.asn",
+  "module": "ContentCollectionModule-2010",
+  "rfc": 6268,
+  "standard": "CMS",
+  "section": "5",
+  "start_line": 585,
+  "end_line": 654
+ },
+ {
+  "file": "rfc6268_HMAC-2010.asn",
+  "module": "HMAC-2010",
+  "rfc": 6268,
+  "standard": "CMS",
+  "section": "6",
+  "start_line": 679,
+  "end_line": 798
+ },
+ {
+  "file": "rfc6268_WLANCertExtn-2010.asn",
+  "module": "WLANCertExtn-2010",
+  "rfc": 6268,
+  "standard": "CMS",
+  "section": "7",
+  "start_line": 806,
+  "end_line": 879
+ },
+ {
+  "file": "rfc6268_MultipleSignatures-2010.asn",
+  "module": "MultipleSignatures-2010",
+  "rfc": 6268,
+  "standard": "CMS",
+  "section": "10",
+  "start_line": 1594,
+  "end_line": 1667
+ },
+ {
+  "file": "rfc6955_DH-Sign.asn",
+  "module": "DH-Sign",
+  "rfc": 6955,
+  "standard": "X.509",
+  "section": "A",
+  "start_line": 1250,
+  "end_line": 1492
+ },
+ {
+  "file": "rfc6955_DH-Sign.asn",
+  "module": "DH-Sign",
+  "rfc": 6955,
+  "standard": "X.509",
+  "section": "A",
+  "start_line": 1527,
+  "end_line": 1618
+ },
+ {
+  "file": "rfc6960_OCSP-2013-08.asn",
+  "module": "OCSP-2013-08",
+  "rfc": 6960,
+  "standard": "OCSP",
+  "section": "B.2",
+  "start_line": 1873,
+  "end_line": 2121
+ },
+ {
+  "file": "rfc8398_LAMPS-EaiAddresses-2016.asn",
+  "module": "LAMPS-EaiAddresses-2016",
+  "rfc": 8398,
+  "standard": "X.509",
+  "section": "A",
+  "start_line": 518,
+  "end_line": 556
+ },
+ {
+  "file": "rfc8692_PKIXAlgsForSHAKE-2019.asn",
+  "module": "PKIXAlgsForSHAKE-2019",
+  "rfc": 8692,
+  "standard": "X.509",
+  "section": "A",
+  "start_line": 447,
+  "end_line": 638
+ },
+ {
+  "file": "rfc8226_TN-Module-2016.asn",
+  "module": "TN-Module-2016",
+  "rfc": 8226,
+  "standard": "X.509",
+  "section": "A",
+  "start_line": 1142,
+  "end_line": 1274
+ },
+ {
+  "file": "rfc8520_MUDURLExtnModule-2016.asn",
+  "module": "MUDURLExtnModule-2016",
+  "rfc": 8520,
+  "standard": "X.509",
+  "section": "11",
+  "start_line": 1915,
+  "end_line": 1996
+ },
+ {
+  "file": "rfc7773_ACE-08.asn",
+  "module": "ACE-08",
+  "rfc": 7773,
+  "standard": "X.509",
+  "section": "A.2",
+  "start_line": 569,
+  "end_line": 607
+ },
+ {
+  "file": "rfc6486_RPKIManifest.asn",
+  "module": "RPKIManifest",
+  "rfc": 6486,
+  "standard": "RPKI",
+  "section": "A",
+  "start_line": 961,
+  "end_line": 997
+ },
+ {
+  "file": "rfc8360_IPAddrAndASCertExtn-v2.asn",
+  "module": "IPAddrAndASCertExtn-v2",
+  "rfc": 8360,
+  "standard": "RPKI",
+  "section": "4.2.2.7",
+  "start_line": 569,
+  "end_line": 611
+ },
+ {
+  "file": "rfc6031_SymmetricKeyPackageModulev1.asn",
+  "module": "SymmetricKeyPackageModulev1",
+  "rfc": 6031,
+  "standard": "CMS",
+  "section": "A.1",
+  "start_line": 1191,
+  "end_line": 1261
+ },
+ {
+  "file": "rfc6031_PSKCAttributesModule.asn",
+  "module": "PSKCAttributesModule",
+  "rfc": 6031,
+  "standard": "CMS",
+  "section": "A.2",
+  "start_line": 1265,
+  "end_line": 1556
+ },
+ {
+  "file": "rfc6032_EncryptedKeyPackageModuleV1.asn",
+  "module": "EncryptedKeyPackageModuleV1",
+  "rfc": 6032,
+  "standard": "CMS",
+  "section": "A",
+  "start_line": 517,
+  "end_line": 590
+ },
+ {
+  "file": "rfc7191_KeyPackageReceiptAndErrorModuleV2.asn",
+  "module": "KeyPackageReceiptAndErrorModuleV2",
+  "rfc": 7191,
+  "standard": "CMS",
+  "section": "A",
+  "start_line": 1133,
+  "end_line": 1376
+ },
+ {
+  "file": "rfc8696_CMSORIforPSK-2019.asn",
+  "module": "CMSORIforPSK-2019",
+  "rfc": 8696,
+  "standard": "CMS",
+  "section": "6",
+  "start_line": 482,
+  "end_line": 571
+ },
+ {
+  "file": "rfc8708_MTS-HashSig-2013.asn",
+  "module": "MTS-HashSig-2013",
+  "rfc": 8708,
+  "standard": "CMS",
+  "section": "A",
+  "start_line": 572,
+  "end_line": 630
+ },
+ {
+  "file": "rfc9629_KEMAlgorithmInformation-2023.asn",
+  "module": "KEMAlgorithmInformation-2023",
+  "rfc": 9629,
+  "standard": "CMS",
+  "section": "6.1",
+  "start_line": 397,
+  "end_line": 461
+ },
+ {
+  "file": "rfc9629_CMS-KEMRecipientInfo-2023.asn",
+  "module": "CMS-KEMRecipientInfo-2023",
+  "rfc": 9629,
+  "standard": "CMS",
+  "section": "6.2",
+  "start_line": 467,
+  "end_line": 537
+ },
+ {
+  "file": "rfc9690_CMS-RSA-KEM-2023.asn",
+  "module": "CMS-RSA-KEM-2023",
+  "rfc": 9690,
+  "standard": "CMS",
+  "section": "B.2",
+  "start_line": 902,
+  "end_line": 1116
+ },
+ {
+  "file": "rfc3161_PKIXTSP.asn",
+  "module": "PKIXTSP",
+  "rfc": 3161,
+  "standard": "TSP",
+  "section": "7",
+  "start_line": 1164,
+  "end_line": 1323
+ },
+ {
+  "file": "rfc5126_ETS-ElectronicSignatureFormats-ExplicitSyntax97.asn",
+  "module": "ETS-ElectronicSignatureFormats-ExplicitSyntax97",
+  "rfc": 5126,
+  "standard": "CAdES",
+  "section": "A.2",
+  "start_line": 4271,
+  "end_line": 4753
+ },
+ {
+  "file": "rfc5914_TrustAnchorInfoModule.asn",
+  "module": "TrustAnchorInfoModule",
+  "rfc": 5914,
+  "standard": "TrustAnchor",
+  "section": "A.1",
+  "start_line": 576,
+  "end_line": 648
+ },
+ {
+  "file": "rfc5934_TAMP-Protocol-v2.asn",
+  "module": "TAMP-Protocol-v2",
+  "rfc": 5934,
+  "standard": "TrustAnchor",
+  "section": "A.1",
+  "start_line": 3385,
+  "end_line": 3891
+ },
+ {
+  "file": "rfc6010_CMSContentConstraintsCertExtn.asn",
+  "module": "CMSContentConstraintsCertExtn",
+  "rfc": 6010,
+  "standard": "TrustAnchor",
+  "section": "A.1",
+  "start_line": 1927,
+  "end_line": 2003
+ },
+ {
+  "file": "rfc6402_EnrollmentMessageSyntax-2011-v08.asn",
+  "module": "EnrollmentMessageSyntax-2011-v08",
+  "rfc": 6402,
+  "standard": "CMC",
+  "section": "A",
+  "start_line": 1310,
+  "end_line": 2013
  }
 ]

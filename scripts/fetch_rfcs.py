@@ -65,6 +65,12 @@ def main():
                     s -= 1
                 while s > 0 and cl[s - 1][1].strip():
                     s -= 1
+                while cl[s][1].strip().startswith("<CODE") or not cl[s][1].strip():
+                    s += 1
+                if cl[s][1].strip().startswith("{"):  # name line is above a blank line
+                    s -= 1
+                    while not cl[s][1].strip():
+                        s -= 1
                 e = i
                 while e < len(cl) and not (END_RE.match(cl[e][1]) and e > i + 1):
                     e += 1

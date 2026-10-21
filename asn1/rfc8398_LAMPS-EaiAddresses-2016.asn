@@ -1,0 +1,39 @@
+  LAMPS-EaiAddresses-2016
+    { iso(1) identified-organization(3) dod(6)
+      internet(1) security(5) mechanisms(5) pkix(7) id-mod(0)
+      id-mod-lamps-eai-addresses-2016(92) }
+
+  DEFINITIONS IMPLICIT TAGS ::=
+  BEGIN
+
+  IMPORTS
+    OTHER-NAME
+    FROM PKIX1Implicit-2009
+      { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+      mechanisms(5) pkix(7) id-mod(0) id-mod-pkix1-implicit-02(59) }
+
+    id-pkix
+    FROM PKIX1Explicit-2009
+      { iso(1) identified-organization(3) dod(6) internet(1) security(5)
+      mechanisms(5) pkix(7) id-mod(0) id-mod-pkix1-explicit-02(51) } ;
+
+  --
+  -- otherName carries additional name types for subjectAltName,
+  -- issuerAltName, and other uses of GeneralNames.
+  --
+
+    id-on OBJECT IDENTIFIER ::= { id-pkix 8 }
+
+    SmtpUtf8OtherNames OTHER-NAME ::= { on-SmtpUTF8Mailbox, ... }
+
+    on-SmtpUTF8Mailbox OTHER-NAME ::= {
+        SmtpUTF8Mailbox IDENTIFIED BY id-on-SmtpUTF8Mailbox
+    }
+
+    id-on-SmtpUTF8Mailbox OBJECT IDENTIFIER ::= { id-on 9 }
+
+    SmtpUTF8Mailbox ::= UTF8String (SIZE (1..MAX))
+     -- SmtpUTF8Mailbox conforms to Mailbox as specified
+     -- in Section 3.3 of RFC 6531.
+
+  END

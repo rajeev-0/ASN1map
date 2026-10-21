@@ -1,0 +1,71 @@
+     CMS-KEMRecipientInfo-2023
+       { iso(1) member-body(2) us(840) rsadsi(113549)
+         pkcs(1) pkcs-9(9) smime(16) modules(0)
+         id-mod-cms-kemri-2023(77) }
+
+     DEFINITIONS IMPLICIT TAGS ::=
+     BEGIN
+     -- EXPORTS ALL;
+     IMPORTS
+       OTHER-RECIPIENT, CMSVersion, RecipientIdentifier,
+       EncryptedKey, KeyDerivationAlgorithmIdentifier,
+       KeyEncryptionAlgorithmIdentifier, UserKeyingMaterial
+         FROM CryptographicMessageSyntax-2010  -- RFC 6268
+           { iso(1) member-body(2) us(840) rsadsi(113549)
+             pkcs(1) pkcs-9(9) smime(16) modules(0)
+             id-mod-cms-2009(58) }
+       KEM-ALGORITHM
+         FROM KEMAlgorithmInformation-2023  -- RFC 9629
+           { iso(1) identified-organization(3) dod(6) internet(1)
+             security(5) mechanisms(5) pkix(7) id-mod(0)
+             id-mod-kemAlgorithmInformation-2023(109) }
+       AlgorithmIdentifier{}
+         FROM AlgorithmInformation-2009  -- RFC 5912
+           { iso(1) identified-organization(3) dod(6) internet(1)
+             security(5) mechanisms(5) pkix(7) id-mod(0)
+             id-mod-algorithmInformation-02(58) } ;
+
+     --
+     -- OtherRecipientInfo Types (ori-)
+     --
+
+     SupportedOtherRecipInfo OTHER-RECIPIENT ::= { ori-KEM, ... }
+
+     ori-KEM OTHER-RECIPIENT ::= {
+       KEMRecipientInfo IDENTIFIED BY id-ori-kem }
+
+     id-ori OBJECT IDENTIFIER ::= { iso(1) member-body(2) us(840)
+       rsadsi(113549) pkcs(1) pkcs-9(9) smime(16) 13 }
+
+     id-ori-kem OBJECT IDENTIFIER ::= { id-ori 3 }
+
+     --
+     -- KEMRecipientInfo
+     --
+
+     KEMRecipientInfo ::= SEQUENCE {
+       version CMSVersion,  -- always set to 0
+       rid RecipientIdentifier,
+       kem KEMAlgorithmIdentifier,
+       kemct OCTET STRING,
+       kdf KeyDerivationAlgorithmIdentifier,
+       kekLength INTEGER (1..65535),
+       ukm [0] EXPLICIT UserKeyingMaterial OPTIONAL,
+       wrap KeyEncryptionAlgorithmIdentifier,
+       encryptedKey EncryptedKey }
+
+     KEMAlgSet KEM-ALGORITHM ::= { ... }
+
+     KEMAlgorithmIdentifier ::=
+       AlgorithmIdentifier{ KEM-ALGORITHM, {KEMAlgSet} }
+
+     --
+     -- CMSORIforKEMOtherInfo
+     --
+
+     CMSORIforKEMOtherInfo ::= SEQUENCE {
+       wrap KeyEncryptionAlgorithmIdentifier,
+       kekLength INTEGER (1..65535),
+       ukm [0] EXPLICIT UserKeyingMaterial OPTIONAL }
+
+     END
